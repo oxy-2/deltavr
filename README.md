@@ -15,3 +15,6 @@ https://pt.aliexpress.com/item/1005003041935114.html?spm=a2g0o.productlist.main.
 then we need the hades vr pcb which im doing a "remix" idk like a custom version of that makes things nicer as i have a hot air resoldering gun and will just have it all on one pcb or like sum like that idk lol.
 
 
+
+
+JohnTarkov: Hi im JohnTarkov Im working on the project too and i updated this so i can get my hacktime functioning for the project to use Lookout to record my project.
