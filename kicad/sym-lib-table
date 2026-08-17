@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "DeltaVR_Nordic_nRF52")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/nordic-lib-kicad/symbols/nordic-lib-kicad-nrf52.kicad_sym")(options "")(descr "Nordic nRF52 series (hlord2000/nordic-lib-kicad, CERN-OHL-P-2.0). Symbols: nRF52840-QFXX (QFN48), nRF52840-QIXX (aQFN73), nRF52840-CKXX (WLCSP)."))
+  (lib (name "DeltaVR_ST_LSM6DSV")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/lsm6dsvtr/KiCADv6/2026-08-15_10-22-54.kicad_sym")(options "")(descr "ST LSM6DSVTR 6-axis IMU (official ST library export, LGA14-L)."))
+  (lib (name "DeltaVR_PS5_Stick")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/thumbstick-breakout/kicad/thumbstick-breakout.kicad_sym")(options "")(descr "PS5 joystick module symbol (dbenoy/thumbstick-breakout, CC-BY-SA-4.0). Pins 1/1'=GND, 2/2'=HORZ/VERT wiper, 3/3'=VCC, a-d=stick click."))
+)

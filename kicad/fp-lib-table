@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "DeltaVR_MIFA_Antenna")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/ESP32_MIFA_PCB_ANTENNA/ESP_Antenna.pretty")(options "")(descr "Espressif ESP32 MIFA 2.4 GHz PCB antenna, measured from official gerbers. Place at board edge with ground pour up to the antenna, keepout on all layers."))
+  (lib (name "DeltaVR_PS5_Stick")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/thumbstick-breakout/kicad/thumbstick-breakout.pretty")(options "")(descr "PS5 stick module footprint (dbenoy/thumbstick-breakout, CC-BY-SA-4.0). Matches PS5 hall/TMR replacement sticks (TBA459, GuliKit, etc)."))
+  (lib (name "DeltaVR_Nordic_nRF52")(type "KiCad")(uri "${KIPRJMOD}/../kicad libaries/nordic-lib-kicad/footprints/nordic-lib-kicad-nrf52.pretty")(options "")(descr "Nordic nRF52 footprints (WLCSP BGA variants only). QFN48/aQFN73 use the official Package_DFN_QFN lib that ships with KiCad."))
+)

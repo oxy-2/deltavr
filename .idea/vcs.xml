@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kicad libaries/ESP32_MIFA_PCB_ANTENNA" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kicad libaries/nordic-lib-kicad" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kicad libaries/thumbstick-breakout" vcs="Git" />
   </component>
 </project>
