@@ -495,7 +495,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.12,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -661,7 +661,7 @@
         "uuid": "f9a7cf92-caa1-4202-968c-664241bf98a7"
       }
     ],
-    "used_designators": "U1-2,D1,CN1,C1-3,J1-20,R1-3",
+    "used_designators": "U1-3,D1,CN1,C1-5,#FLG1-3,J1-20,R1-3",
     "variants": []
   },
   "sheets": [
