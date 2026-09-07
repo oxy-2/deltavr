@@ -1,0 +1,20 @@
+sorry this is written informally its just like the parts you'll have to source, i recommend and am using Alibaba and AliExpress
+so this is like for everything like both controllers and the hmd:
+
+3x LSM6DSV family imus (dont get a breakout board, its smd, get the LGA-14 ones)
+3x NRF24L01+ PA + LNA modules (the ones with the antennas that are through-hole boards)
+3x NRF52840 Pro Micro boards (the like nicenano v2.0 compatible ones)
+1x RAGB LED 5mm
+1x smd resistor book 0603 (for all the resistors on the board)
+1x smd capacitor book 0603 (for all the caps on the board, except some)
+4x ht7333 (sot-89 smd ones)
+2x ADS1115 (msop-10)
+2x 3.7v 103048 1500mAh LiPo
+8x 850nm 5mm LEDs (get 100ma max current ones that work at 1.4v to 1.6v)
+2x IRLZ44N TO-220 mosfets
+6x  6x6x4.3MM 4PIN G89 Tactile Tact Push Buttons
+13x 10uF 25V X7R 0603 capacitors
+2x ginfull tmr PS5 replacement joysticks (make sure they are uh with the button lol but yeah)
+4x SS49E hall effect sensors
+
+of course a reminder this is for just the pcbs not the entire headset, youd still need for the headset well the like housing, screen, cameras etc.

@@ -8,7 +8,7 @@ so the headset is made up hardware wise of a couple components, a driver board f
 
 
 
-as of now the pcbs for the headset and controllers are officially done, we dont have firmware yet but you can take a look at everything, in the kicad folder youll find the project file for the hmd pcb and the controller pcbs are in the aptly named kicad controller folder, you see some more stuff and project stats on my website page :D
+as of now the pcbs for the headset and controllers are officially done, we dont have firmware yet but you can take a look at everything, in the kicad folder youll find the project file for the hmd pcb and the controller pcb is in kicad controller R (the R is for right hand, its the only one shipped. for the left hand just copy the project and mirror it in pcbnew: edit -> flip board view... actually just select everything and mirror about the Y axis, its designed symmetric so it just works). everything needed to fabricate is in the release: gerbers, drill files, BOMs, schematics and renders. you see some more stuff and project stats on my website page :D
 
 
 thanks for reading this
