@@ -1,20 +1,21 @@
 # deltavr
-me and a friend build a open source vr headset based on hades vr and using psmove to offer a cost effective wired pcvr solution with a smaller size than other similar projects
 
-so this project i plan to use kinda of like a stack of fresnel lenses to reduce size as they can work and can work and act like pancake lense and it will reduce the thickness of the headset 
+me and a friend build a open source thin vr headset from scratch with stacked fresnel lenses to act as pseudo pancake lenses, high performance lsm6d family imus, inside out SLAM tracking for the hmd unit via 4 ov9281 cameras and ORB-SLAM3 along with constellation and imu tracked controllers using fully rechargeable and replaceable easy to source 3.7v LiPo batteries.
 
 
-so the headset is made up hardware wise of a couple components, a driver board for the displays, a arduino pro micro for the hades vr pcb and then the wiring and such i suppose, if the displays are all wired via mipi then that would mean that i could theoretically build my own driver baord, bad idea apparently so nvm, so general layout now is:
 
-the driver board with hdmi and microusb with the microusb is gonna be sent to the modified hades hmd pcb where, or nah maybe its better to seperately power both and just have them off a splitter cuz like in parrelel should be fine but in series could cause issues.
+so the headset is made up hardware wise of a couple components, a driver board for the displays, the displays obviously, the imu, the four cameras, the usb hub for the cameras, the hmd board which has a nrf24l01+ and a nrf52840, the controllers and hmd communicate over Nordic's enhanced shockburst (ESB) protocol.
 
-other things, cooling, the driver board will have a small fan blowing over it or a aluminium heatsink alone or with a fan depending on how bad it gets, so startign the BOM i need the displays and driver which is ~150 eur on aliexpress
 
-https://pt.aliexpress.com/item/1005003041935114.html?spm=a2g0o.productlist.main.1.bf3aRtSPRtSP1M&algo_pvid=278c8a9b-5970-493e-b57f-a9fe69fe2b48&pdp_ext_f=%7B%22order%22%3A%2249%22%2C%22eval%22%3A%221%22%2C%22fromPage%22%3A%22search%22%7D&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005003041935114%7C_p_origin_prod%3A
 
-then we need the hades vr pcb which im doing a "remix" idk like a custom version of that makes things nicer as i have a hot air resoldering gun and will just have it all on one pcb or like sum like that idk lol.
+as of now the pcbs for the headset and controllers are officially done, we dont have firmware yet but you can take a look at everything, in the kicad folder youll find the project file for the hmd pcb and the controller pcbs are in the aptly named kicad controller folder, you see some more stuff and project stats on my website page :D
 
+
+thanks for reading this
+
+\-oxy <3
 
 
 
 JohnTarkov: Hi im JohnTarkov Im working on the project too and i updated this so i can get my hacktime functioning for the project to use Lookout to record my project.
+
