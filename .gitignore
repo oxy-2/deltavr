@@ -1,0 +1,14 @@
+# KiCad backups / local junk
+**/.history/
+**/_restore_backup*/
+**_restore_backup*
+_autosave-*
+*.kicad_pcb-bak
+*.kicad_sch-bak
+
+# DRC / ratsnest dumps
+**/unconnected.json
+
+# VSCode / misc
+.vscode/
+*.log
