@@ -5,7 +5,7 @@ machine LoadPlatformDescription @platforms/boards/nrf52840dk_nrf52840.repl
 showAnalyzer uart0
 macro reset
 """
-sysbus LoadELF @C:/Users/nini/zephyrproject/deltavirtual/build/zephyr/zephyr.elf
+sysbus LoadELF @C:/Users/nini/zephyrproject/build/zephyr/zephyr.elf
 """
 runMacro $reset
 start
