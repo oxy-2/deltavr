@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "deltavr hmd.stl",
       "vrml": ""
     },
     "page_layout_descr_file": ""
