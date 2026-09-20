@@ -56,7 +56,7 @@ The fix wasnt all that hard, I moved the Renode app files to the gihub repo, mer
 https://lapse.hackclub.com/timelapse/XWEwpXMi7DrT 
 https://lapse.hackclub.com/timelapse/eEOnstobjyAC
 ---
-All lapses in one place :
+All lapses in one place (9 lapses) :
 Setting up laptop :
 https://lapse.hackclub.com/timelapse/IjtBbvyHWhr8
 learning Renode :
@@ -69,5 +69,7 @@ https://lapse.hackclub.com/timelapse/YyGTl8KKhVPs
 Github and Renode :
 https://lapse.hackclub.com/timelapse/XWEwpXMi7DrT 
 https://lapse.hackclub.com/timelapse/eEOnstobjyAC
+making the devlog :
+https://lapse.hackclub.com/timelapse/ocI5iV70McJz
 ---
 The end :)
