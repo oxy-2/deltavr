@@ -44,7 +44,8 @@ https://lapse.hackclub.com/timelapse/Xc3pe6G9qaqB
 https://lapse.hackclub.com/timelapse/02JU9MNJmJuP (trying to fix 3d printer for this project)
 https://lapse.hackclub.com/timelapse/2XFAm0AdBjm3
 https://lapse.hackclub.com/timelapse/dFehxUAkY6Uv (the one i wrote this in)
-(some extra modeling work i did today)
+https://lapse.hackclub.com/timelapse/s5blgIAXa4fz (some extra modeling work i did today) 
+https://lapse.hackclub.com/timelapse/s5blgIAXa4fz (set up obsidian for team in this + prev log)
 
 
 then for the old project with stardance i was keeping up my streak so i also have these lol, also i might in post record more work and add that to the list above.
