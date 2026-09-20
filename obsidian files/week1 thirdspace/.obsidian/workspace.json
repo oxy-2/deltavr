@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "fb7f9f0167f02e64",
+        "id": "b1a04fa020721147",
         "type": "tabs",
         "children": [
           {
-            "id": "8d0b544ad55cd5df",
+            "id": "431d8635815b795f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "rhime7274/week 1 summary of work done.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "week 1 summary of work done"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "rhime7274/week 1 summary of work done.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "rhime7274/week 1 summary of work done.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -155,6 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "rhime7274/week 1 summary of work done.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -181,8 +188,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "8d0b544ad55cd5df",
+  "active": "431d8635815b795f",
   "lastOpenFiles": [
+    "README.md",
     "monizjoao/work i did for the first week.md",
     "rhime7274/week 1 summary of work done.md",
     "Untitled.md",
