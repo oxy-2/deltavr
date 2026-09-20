@@ -13,12 +13,16 @@
             "state": {
               "type": "markdown",
               "state": {
+<<<<<<< Updated upstream
                 "file": "rhime7274/week 1 summary of work done.md",
+=======
+                "file": "merekelene/Week 1 review.md",
+>>>>>>> Stashed changes
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "week 1 summary of work done"
+              "title": "Week 1 review"
             }
           }
         ]
@@ -190,6 +194,7 @@
   },
   "active": "431d8635815b795f",
   "lastOpenFiles": [
+<<<<<<< Updated upstream
     "README.md",
     "monizjoao/work i did for the first week.md",
     "rhime7274/week 1 summary of work done.md",
@@ -206,6 +211,24 @@
     "oxy/IMG_20260920_075131.jpg",
     "oxy/IMG_20260920_075117.jpg",
     "monizjoao",
+=======
+    "oxy/week 1 summary of work done.md",
+    "merekelene/Week 1 review.md",
+    "merekelene/readable gpio pin conections.png",
+    "merekelene/pcb.png",
+    "merekelene/emulation software test run.png",
+    "merekelene/emulation software showcase.png",
+    "merekelene/emulation software.png",
+    "merekelene/laptop setup downloading.png",
+    "oxy/second page book.jpg",
+    "oxy/hmd pcb.jpg",
+    "oxy/headset model.png",
+    "oxy/front page book.jpg",
+    "Untitled.md",
+    "merekelene",
+    "readme.md.md",
+    "john",
+>>>>>>> Stashed changes
     "mimisol",
     "rhime7274",
     "Welcome.md"
