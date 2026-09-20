@@ -26,7 +26,10 @@ _autosave-*
 # === RENODE SIMULATION & BUILD ARTIFACTS ===
 # Exclude build output folders that contain absolute local computer paths
 bin/
-obj/
 build/
 .renode/
 *.map
+*.o
+*.obj
+*.elf
+.vscode/
