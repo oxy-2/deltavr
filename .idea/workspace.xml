@@ -14,8 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5288c249-2121-4804-8015-7df5e37ab890" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/obsidian files/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920192032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920192436.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920192535.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920193216.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920193327.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920193357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920193406.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920193931.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920194616.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920201033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920201254.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920201357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920224948.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920225614.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920225639.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260920233952.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260921000253.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260921001410.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Pasted image 20260921001426.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Screenshot 2026-09-20 193455.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/Untitled.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obsidian files/week1 thirdspace/rhime7274/week 1 summary of work done.md" beforeDir="false" afterPath="$PROJECT_DIR$/obsidian files/week1 thirdspace/rhime7274/week 1 summary of work done.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,36 +69,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/rhime/Documents/GitHub/deltavr",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rhime/Documents/GitHub/deltavr&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SelectedDebugProfileService">{
   &quot;profileIdByStamp&quot;: [],
   &quot;modificationCount&quot;: 1
@@ -98,6 +120,7 @@
       <workItem from="1783369673681" duration="10000" />
       <workItem from="1786650228170" duration="3372000" />
       <workItem from="1788948709759" duration="403000" />
+      <workItem from="1789947290013" duration="14000" />
     </task>
     <servers />
   </component>
