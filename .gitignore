@@ -1,4 +1,18 @@
-# KiCad backups / local junk
+# === SECURE CREDENTIALS (NEVER UPLOAD) ===
+# Exclude environment files containing API keys, passwords, or tokens
+.env
+.env.*
+*.env
+
+# === RECENT / SYSTEM JUNK ===
+Thumbs.db
+.DS_Store
+
+# === VSCODE / MISC ===
+.vscode/
+*.log
+
+# === KICAD BACKUPS & LOCAL JUNK ===
 **/.history/
 **/_restore_backup*/
 **_restore_backup*
@@ -9,6 +23,10 @@ _autosave-*
 # DRC / ratsnest dumps
 **/unconnected.json
 
-# VSCode / misc
-.vscode/
-*.log
+# === RENODE SIMULATION & BUILD ARTIFACTS ===
+# Exclude build output folders that contain absolute local computer paths
+bin/
+obj/
+build/
+.renode/
+*.map
