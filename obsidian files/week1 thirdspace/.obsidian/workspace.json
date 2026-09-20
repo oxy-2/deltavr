@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "5df70058f160e622",
+    "id": "61d76ae0a2efaad1",
     "type": "split",
     "children": [
       {
-        "id": "026baddafc4ee61f",
+        "id": "b1a04fa020721147",
         "type": "tabs",
         "children": [
           {
-            "id": "bb5261cc6cfce707",
+            "id": "431d8635815b795f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "merekelene/Week 1 review.md",
+                "file": "rhime7274/week 1 summary of work done.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Week 1 review"
+              "title": "week 1 summary of work done"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "9707ba33f383ee18",
+    "id": "2495f1dee10c15fb",
     "type": "split",
     "children": [
       {
-        "id": "5520cfe1ee469dad",
+        "id": "55fa0ac08e8d9855",
         "type": "tabs",
         "children": [
           {
-            "id": "11f82c7056497713",
+            "id": "eb9b75c4833e7fdb",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "eb0a05222748e706",
+            "id": "81fde24599663619",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -67,7 +67,7 @@
             }
           },
           {
-            "id": "532b5c45da5dd94f",
+            "id": "8e9734b44e797fc2",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -86,20 +86,20 @@
     "width": 300
   },
   "right": {
-    "id": "25cfe24fa935a8b3",
+    "id": "8beaa8bb18902a01",
     "type": "split",
     "children": [
       {
-        "id": "9055a1ce51303d50",
+        "id": "27b14a6cb04f261a",
         "type": "tabs",
         "children": [
           {
-            "id": "0f03164af324df8e",
+            "id": "cd9dc7cafa6e1cf8",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "merekelene/Week 1 review.md",
+                "file": "rhime7274/week 1 summary of work done.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +113,12 @@
             }
           },
           {
-            "id": "c9c2a7f3daa3b104",
+            "id": "7205965fc6f81165",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "merekelene/Week 1 review.md",
+                "file": "rhime7274/week 1 summary of work done.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -127,7 +127,7 @@
             }
           },
           {
-            "id": "ad8ea82a7a9f8d50",
+            "id": "293a3927077481e4",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -142,7 +142,7 @@
             }
           },
           {
-            "id": "b9e99afb12eff0f6",
+            "id": "f98030574db0c743",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -156,12 +156,12 @@
             }
           },
           {
-            "id": "0c993eeed39ad8d1",
+            "id": "64dd566749a925b6",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "merekelene/Week 1 review.md",
+                "file": "rhime7274/week 1 summary of work done.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -188,10 +188,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "bb5261cc6cfce707",
+  "active": "eb9b75c4833e7fdb",
   "lastOpenFiles": [
+    "merekelene/Week 1 review.md",
+    "merekelene/readable gpio pin conections.png",
+    "merekelene/pcb.png",
+    "merekelene/laptop setup downloading.png",
+    "merekelene/emulation software.png",
+    "merekelene/emulation software test run.png",
+    "merekelene/emulation software showcase.png",
+    "merekelene",
+    "README.md",
     "monizjoao/work i did for the first week.md",
     "rhime7274/week 1 summary of work done.md",
-    "merekelene/Week 1 review.md"
+    "Untitled.md",
+    "readme.md.md",
+    "rhime7274/controller pcb.png",
+    "rhime7274/hmd pcb.jpg",
+    "rhime7274/second page book.jpg",
+    "rhime7274/front page book.jpg",
+    "monizjoao",
+    "mimisol",
+    "rhime7274",
+    "Welcome.md"
   ]
 }
