@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "61d76ae0a2efaad1",
+    "id": "e5cc208b1738dc93",
     "type": "split",
     "children": [
       {
-        "id": "b1a04fa020721147",
+        "id": "74bc6a91ff82137b",
         "type": "tabs",
         "children": [
           {
-            "id": "431d8635815b795f",
+            "id": "53cff709ea76b5cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "rhime7274/week 1 summary of work done.md",
+                "file": "week1 thirdspace/monizjoao/work i did for the first week.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "week 1 summary of work done"
+              "title": "work i did for the first week"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2495f1dee10c15fb",
+    "id": "4e169732ee1c62ee",
     "type": "split",
     "children": [
       {
-        "id": "55fa0ac08e8d9855",
+        "id": "fbe79940ccb80933",
         "type": "tabs",
         "children": [
           {
-            "id": "eb9b75c4833e7fdb",
+            "id": "c96710a9680c1732",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "81fde24599663619",
+            "id": "1d7cd45947c800fb",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -67,7 +67,7 @@
             }
           },
           {
-            "id": "8e9734b44e797fc2",
+            "id": "b09e7e443c20f77b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -86,20 +86,20 @@
     "width": 300
   },
   "right": {
-    "id": "8beaa8bb18902a01",
+    "id": "b94e7892b5e06163",
     "type": "split",
     "children": [
       {
-        "id": "27b14a6cb04f261a",
+        "id": "46bd07daacbd0c65",
         "type": "tabs",
         "children": [
           {
-            "id": "cd9dc7cafa6e1cf8",
+            "id": "89d9a5b4829f6a0e",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "rhime7274/week 1 summary of work done.md",
+                "file": "week1 thirdspace/monizjoao/work i did for the first week.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +113,12 @@
             }
           },
           {
-            "id": "7205965fc6f81165",
+            "id": "35b121a4cd481642",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "rhime7274/week 1 summary of work done.md",
+                "file": "week1 thirdspace/monizjoao/work i did for the first week.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -127,7 +127,7 @@
             }
           },
           {
-            "id": "293a3927077481e4",
+            "id": "49c8c5e79c04bbb7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -142,7 +142,7 @@
             }
           },
           {
-            "id": "f98030574db0c743",
+            "id": "8ea964dfd66ab457",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -156,12 +156,12 @@
             }
           },
           {
-            "id": "64dd566749a925b6",
+            "id": "cd7dffe89a267bfb",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "rhime7274/week 1 summary of work done.md",
+                "file": "week1 thirdspace/monizjoao/work i did for the first week.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -188,28 +188,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "eb9b75c4833e7fdb",
+  "active": "53cff709ea76b5cb",
   "lastOpenFiles": [
-    "merekelene/Week 1 review.md",
-    "merekelene/readable gpio pin conections.png",
-    "merekelene/pcb.png",
-    "merekelene/laptop setup downloading.png",
-    "merekelene/emulation software.png",
-    "merekelene/emulation software test run.png",
-    "merekelene/emulation software showcase.png",
-    "merekelene",
-    "README.md",
-    "monizjoao/work i did for the first week.md",
-    "rhime7274/week 1 summary of work done.md",
     "Untitled.md",
-    "readme.md.md",
-    "rhime7274/controller pcb.png",
-    "rhime7274/hmd pcb.jpg",
-    "rhime7274/second page book.jpg",
-    "rhime7274/front page book.jpg",
-    "monizjoao",
-    "mimisol",
-    "rhime7274",
-    "Welcome.md"
+    "week1 thirdspace/monizjoao/work i did for the first week.md",
+    "week1 thirdspace/monizjoao/Pasted image 20260920192032.png",
+    "week1 thirdspace/monizjoao/Pasted image 20260920193327.png",
+    "week1 thirdspace/rhime7274/week 1 summary of work done.md",
+    "week1 thirdspace/monizjoao/work i did for the first week 1.md",
+    "week1 thirdspace/merekelene/Week 1 review.md",
+    "week1 thirdspace/merekelene/readable gpio pin conections.png",
+    "week1 thirdspace/merekelene/laptop setup downloading.png",
+    "week1 thirdspace/merekelene/pcb.png",
+    "week1 thirdspace/merekelene/emulation software.png",
+    "week1 thirdspace/merekelene/emulation software test run.png",
+    "week1 thirdspace/merekelene/emulation software showcase.png",
+    "week1 thirdspace/merekelene",
+    "week1 thirdspace/monizjoao/Pasted image 20260921001426.png",
+    "week1 thirdspace/monizjoao/Pasted image 20260921001410.png"
   ]
 }
