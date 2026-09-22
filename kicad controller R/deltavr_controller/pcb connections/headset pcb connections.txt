@@ -1,0 +1,33 @@
+Pro Micro nRF52840 -> lsm6dsvrt : https://lv.mouser.com/en/ProductDetail/STMicroelectronics/LSM6DSVTR?qs=vvQtp7zwQdOfmLUdGphmwA%3D%3D
+
+19 / ain5 p0.29 -> 1 / sdo/sao
+31 / p1.01 -> 4 / int1
+32 / p1.02 -> 9 / int2
+18 / ain0 p0.02 -> 12 / cs
+17 / p1.15 -> 13 / scl
+16 / p1.13 -> 14 / sda
+
+gnd -> 2 sdx / 3 scx / 6 gnd / 7 gnd
+vcc -> 7 vdd_01 / 8 vdd
+
+x -> 10 ocs_aux / 11 sdo_aux
+
+Pro Micro nRF52840 ->  NRF24L01 : https://hackaday.io/page/399497-nrf24l01-module-pinout-features-applications-and-circuit
+
+33 / p1.07 -> 3 / ce
+15 / p1.11 -> 4 / csn
+17 / p1.15 -> 5 / sck
+16 / p1.13 -> 6 / mosi
+19 / ain5 p0.31 -> 7 / miso
+12 / p1.06 -> 8 / irq
+
+gnd -> 1 gnd
+vcc -> 2 vcc
+
+Pro Micro nRF52840 -> led_ragb
+
+7 / p0.22 -> B
+8 / p0.24 -> G
+9 / p1.00 -> R
+
+gnd -> A
