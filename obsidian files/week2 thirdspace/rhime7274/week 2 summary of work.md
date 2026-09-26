@@ -6,9 +6,9 @@ so this week was i feel very productive and alot less well scary than last week 
 
 so these are the documents for the DRAE or whoever was gonna be talked with, anyways so for the most part this week was just a shit ton of modeling, ill see if i have some screenshots, yeah i have some, here.
 
-![[Pasted image 20260926180319.png]]
+![[lenses and back.png]]
 
-![[Pasted image 20260926180407.png]]
+![[front and pcb.png]]
 
 you can see the like display holders on the linear rods for ipd adjustment and the start of the lens assembly too, also on the back you can see its all nuked cuz the entire document died and we had to almost start for scratch (not really but it was pretty bad), anyways so idk what else to say, grand also has alibaba where he lives with tiny costs for shipping so we might make a route for getting him stuff and delivering it back home, but yeah i think thats it, so until next week.
 
