@@ -13,3 +13,21 @@ so these are the documents for the DRAE or whoever was gonna be talked with, any
 you can see the like display holders on the linear rods for ipd adjustment and the start of the lens assembly too, also on the back you can see its all nuked cuz the entire document died and we had to almost start for scratch (not really but it was pretty bad), anyways so idk what else to say, grand also has alibaba where he lives with tiny costs for shipping so we might make a route for getting him stuff and delivering it back home, but yeah i think thats it, so until next week.
 
 made with love by oxy <3
+
+
+
+lapse links:
+
+https://lapse.hackclub.com/timelapse/OxHrwwc8bzsu
+https://lapse.hackclub.com/timelapse/Qq2OVisVmfpj
+https://lapse.hackclub.com/timelapse/tQGIr-x7XhRh
+https://lapse.hackclub.com/timelapse/845iVJX_8Kzt
+https://lapse.hackclub.com/timelapse/nfVtreNUa6ab
+https://lapse.hackclub.com/timelapse/kR6qlZqq_LN0
+https://lapse.hackclub.com/timelapse/WtiKOfRqt2if
+https://lapse.hackclub.com/timelapse/Rw-4syWM3khl
+https://lapse.hackclub.com/timelapse/JXnnkBSYRRAX (yes i drafted the doc on paper T-T)
+https://lapse.hackclub.com/timelapse/EuZL446UGXsR
+https://lapse.hackclub.com/timelapse/EuZL446UGXsR
+https://lapse.hackclub.com/timelapse/fG8BKOUzBt_j
+https://lapse.hackclub.com/timelapse/ycKDxk1f7pq6 (the one i wrote this during)
