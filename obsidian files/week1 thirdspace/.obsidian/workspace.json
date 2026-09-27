@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b1a04fa020721147",
+        "id": "94833e0f03ee16c3",
         "type": "tabs",
         "children": [
           {
-            "id": "431d8635815b795f",
+            "id": "4a7966f1e5fcf816",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "rhime7274/week 1 summary of work done.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "week 1 summary of work done"
+              "title": "New tab"
             }
           }
         ]
@@ -188,8 +184,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "eb9b75c4833e7fdb",
+  "active": "4a7966f1e5fcf816",
   "lastOpenFiles": [
+    "rhime7274/week 1 summary of work done.md",
     "merekelene/Week 1 review.md",
     "merekelene/readable gpio pin conections.png",
     "merekelene/pcb.png",
@@ -200,7 +197,6 @@
     "merekelene",
     "README.md",
     "monizjoao/work i did for the first week.md",
-    "rhime7274/week 1 summary of work done.md",
     "Untitled.md",
     "readme.md.md",
     "rhime7274/controller pcb.png",
