@@ -1,0 +1,66 @@
+// nicenano_deltavr.repl
+//
+// Extends Renode's built-in nRF52840 platform (platforms/cpus/nrf52840.repl)
+// with the extra parts on your two boards: LSM6DSVTR (I2C), ADS1115 (I2C),
+// and an nRF24L01+ stub (SPI).
+//
+// The base platform already provides gpio0/gpio1 (P0.xx / P1.xx, matching
+// the nice!nano labels in your schematic directly), twi0/twi1, spi0/spi1/spi2,
+// uart0/uart1, etc. This file only ADDS the extra peripherals and wires them
+// to GPIO pins.
+//
+// IMPORTANT: the pin numbers below (CS_PIN, IRQ_PIN, etc.) are PLACEHOLDERS.
+// Fill them in from your actual Zephyr devicetree overlay / pinctrl, since
+// that's the authoritative source for which P0.xx / P1.xx pin does what,
+// not a schematic screenshot. nRF52840 has two ports: P0 (0-31) -> gpio0,
+// P1 (0-15) -> gpio1. So devicetree "&gpio1 15" == gpio1, pin 15 here.
+
+using "platforms/cpus/nrf52840.repl"
+
+// Writable UICR model. The SVD-generated UICR is unimplemented and causes
+// Zephyr SystemInit to reset-loop on NFCPINS. Loaded from UICRStub.cs.
+uicr: Misc.UICRStub @ sysbus 0x10001000
+
+// ---------------------------------------------------------------------
+// LSM6DSVTR IMU over I2C (twi1). Default 7-bit address 0x6A (SA0 low) or
+// 0x6B (SA0 high) - check your SDO/SA0 strap, schematic shows it tied via J1.
+// ---------------------------------------------------------------------
+lsm6dsv: Mocks.DummyI2CSlave @ twi1 0x6A
+
+// ---------------------------------------------------------------------
+// ADS1115 ADC over I2C (twi1). Default address 0x48 (ADDR tied to GND).
+// ---------------------------------------------------------------------
+ads1115: Mocks.DummyI2CSlave @ twi1 0x48
+
+// ---------------------------------------------------------------------
+// nRF24L01+ over SPI. Uses the custom NRF24L01Stub peripheral (see
+// peripherals/NRF24L01Stub.cs) instead of DummySPISlave, because we need
+// real register/command decoding to bridge payloads between the two
+// simulated boards.
+//
+// CS/CSN is a GPIO-driven chip-select, not a dedicated SPI CS line on the
+// nRF52840's SPI peripheral, so it's wired as a GPIO -> peripheral link,
+// matching how your firmware almost certainly drives it (GPIO CSN toggled
+// in software, same as most nRF24 driver libraries e.g. RF24).
+// ---------------------------------------------------------------------
+nrf24: Peripherals.SPI.NRF24L01Stub @ spi2
+    // "nodeId" must be different on the two boards so the stub knows which
+    // shared channel dictionary entry is "us" vs "them". Set this per-board
+    // in the two .resc files below, e.g.:
+    //   sysbus.nrf24 NodeId "headset"   /   sysbus.nrf24 NodeId "controller"
+
+// Pin 0 on the nrf24 stub is CSN (standard Renode convention for a GPIO-
+// driven SPI chip-select, same pattern Renode uses for its ADXL372 example).
+// Pin 1 is CE, which is a genuinely separate GPIO line on real nRF24 modules
+// (not part of the SPI transaction at all) and must be wired here too, or
+// your driver will hang waiting for CE-triggered TX/RX.
+gpio0:
+    // TODO: set to your real CSN pin (P0.xx) from the schematic / devicetree
+    17 -> nrf24@0   // CSN
+    // TODO: set to your real CE pin (P0.xx) from the schematic / devicetree
+    20 -> nrf24@1   // CE
+
+// IRQ is an OUTPUT from the nRF24 back to the MCU (active-low, fires on
+// RX_DR / TX_DS / MAX_RT). TODO: set to your real IRQ pin (P0.xx/P1.xx).
+nrf24:
+    2 -> gpio0@21   // nrf24 IRQ pin -> MCU P0.21 (placeholder)
