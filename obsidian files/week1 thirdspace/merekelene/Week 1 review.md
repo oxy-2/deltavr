@@ -69,7 +69,7 @@ https://lapse.hackclub.com/timelapse/YyGTl8KKhVPs
 Github and Renode :
 https://lapse.hackclub.com/timelapse/XWEwpXMi7DrT 
 https://lapse.hackclub.com/timelapse/eEOnstobjyAC
-making the devlog :
+Making the devlog :
 https://lapse.hackclub.com/timelapse/ocI5iV70McJz
 ---
 The end :)
