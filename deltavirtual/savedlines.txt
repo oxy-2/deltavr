@@ -1,0 +1,2 @@
+sysbus LoadELF @headset.elf
+sysbus LoadELF @controller.elf

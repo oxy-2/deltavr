@@ -1,0 +1,6 @@
+some useful commands that are good to know
+
+1 - "mach" switch between and edit machines
+
+
+	

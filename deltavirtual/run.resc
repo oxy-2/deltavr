@@ -1,30 +1,11 @@
-:name: DeltaVirtual (single board)
-:description: Minimal single-machine run of the deltavirtual Zephyr sample
-:             on Renode's nRF52840 platform. Good first sanity check —
-:             UART should show "nrf nrf nrf nrf!" once per second.
-:
-: Run from the deltavirtual folder:
-:   renode run.resc
-
 using sysbus
+mach create "headset"
+machine LoadPlatformDescription @promicro_nrf52840.repl
 
-# Writable UICR so Zephyr SystemInit does not reset-loop on NFCPINS.
-i @renode/peripherals/UICRStub.cs
+showAnalyzer sysbus.uart0
 
-mach create "deltavirtual"
-machine LoadPlatformDescription @platforms/cpus/nrf52840.repl
-machine LoadPlatformDescriptionFromString """
-uicr: Misc.UICRStub @ sysbus 0x10001000
-"""
+mach create "controller"
+machine LoadPlatformDescription @promicro_nrf52840.repl
 
-$bin ?= @build/deltavirtual/zephyr/zephyr.elf
-
-showAnalyzer uart0
-
-macro reset
-"""
-    sysbus LoadELF $bin
-"""
-runMacro $reset
-
+showAnalyzer sysbus.uart0
 start
