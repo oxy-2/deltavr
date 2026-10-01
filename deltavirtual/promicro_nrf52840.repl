@@ -1,9 +1,0 @@
-using "platforms/cpus/nrf52840.repl"
-
-led: Miscellaneous.LED @ gpio0 15 // name, model, what its connected to
-gpio0:                            // nedded because the controlled drives the led
-    15 -> led@0                   // pin 15 send signal to led
-
-btnD2: Miscellaneous.Button @ gpio0 17 // name, model, what its connected to
-    invert: true                       //
-    -> gpio0@17                        // button sends signal to pin 17

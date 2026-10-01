@@ -1,11 +1,13 @@
+include @platform_descriptions/nrf24l01.cs
 using sysbus
 mach create "headset"
-machine LoadPlatformDescription @promicro_nrf52840.repl
+machine LoadPlatformDescription @platform_descriptions/headset_wiring.repl
 
 showAnalyzer sysbus.uart0
 
+
 mach create "controller"
-machine LoadPlatformDescription @promicro_nrf52840.repl
+machine LoadPlatformDescription @platform_descriptions/controller_wiring.repl
 
 showAnalyzer sysbus.uart0
 start

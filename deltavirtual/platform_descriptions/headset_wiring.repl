@@ -1,0 +1,19 @@
+using "platforms/cpus/nrf52840.repl"
+
+led: Miscellaneous.LED @ gpio0 15
+
+gpio0:
+    15 -> led@0
+
+btnD2: Miscellaneous.Button @ gpio0 17
+    invert: true
+    -> gpio0@17
+
+radio: Wireless.nrf24l01 @ spi1
+
+gpio1:
+    11 -> radio@0
+    7 -> radio@1
+
+radio:
+    IRQ -> gpio1@6
