@@ -1,0 +1,18 @@
+Install
+1 - go to this link
+	https://github.com/renode/renode
+
+2 - (windows) scroll down and click on the
+	renode-latest.setup.exe
+
+3 - open the downloaded file and MAKE SURE to select "add to PATH"
+
+4 - proceed with install as with any other exe
+
+5 - open command promt and type 
+	renode
+
+6 - to make sure that everything works properly, run this command
+	include @scripts/single-node/quark_c1000.resc
+
+if you encounter any problems ask - merekelene

@@ -1,11 +1,13 @@
-:name: DeltaVirtual
+include @platform_descriptions/nrf24l01.cs
 using sysbus
-mach create "deltavirtual"
-machine LoadPlatformDescription @platforms/boards/nrf52840dk_nrf52840.repl
-showAnalyzer uart0
-macro reset
-"""
-sysbus LoadELF @C:/Users/nini/zephyrproject/build/zephyr/zephyr.elf
-"""
-runMacro $reset
+mach create "headset"
+machine LoadPlatformDescription @platform_descriptions/headset_wiring.repl
+
+showAnalyzer sysbus.uart0
+
+
+mach create "controller"
+machine LoadPlatformDescription @platform_descriptions/controller_wiring.repl
+
+showAnalyzer sysbus.uart0
 start
