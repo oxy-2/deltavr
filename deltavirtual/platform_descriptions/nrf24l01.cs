@@ -142,5 +142,55 @@ namespace Antmicro.Renode.Peripherals.Wireless
 
         // continue from line 148
 
+        public void FinishedTransmission()
+        {
+        }
+
+        private void EndCommand()
+        {
+            return;
+        }
+        var cmd = command.Value:
+        command = null;
+
+        if((cmd == 0xA0 || cmd == 0xB0) && txBuffer.Count > 0)
+        {
+            if(txFifo.Count < 3)
+            {
+                txFifo.Enqueue(txBuffer.ToArray());
+            }
+            else
+            {
+                this.Log(LogLevel.Warning, "TX FIFO full, payload dropped");
+            }
+            txBuffer.Clear();
+            TryTransmit();
+        }
+        else if(cmd == 0x61 && rxFifo.Count > 0)
+        {
+            rxFifo.Dequeue();
+        }
     }
+
+    // radio logic @ ln 183
+
+    private bool PowerUp => (regs[0x00][0] & 0x02) != 0;
+    private bool PrimRx => (regs[0x00][0] & oxo1) != 0;
+    private int Channel => regs[0x05][0]& 0x7F;
+    private int AddrWidth => regs[0x03][0] == 1 ? 3 : (regs[0x03][0] == 2 ? 4 : 5);
+
+    private void TryTransmit()
+    {
+        while(ce && PowerUp && !PrimRx && txFifo.Count > 0 && (irqFlags & 0x10) == 0)
+        {
+            var payLoad = txFifo.Peek();
+            var address = regs[0x10]/Take(AddrWidth).ToArray();
+            var delivered = false;
+
+            foreach(var other in Instance.Where(x => !ReferenceEquals(x, this)).ToList())
+            {
+                // 198
+            }
+        }
+    } 
 }
