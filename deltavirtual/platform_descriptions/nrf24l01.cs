@@ -5,9 +5,9 @@ using Antmicro.Renode.Peripherals.SPI;
 
 namespace Antmicro.Renode.Peripherals.Wireless
 {
-    public class nrf24l01 : ISPIPeripheral, IGPIOReceiver
+    public class NRF24L01 : ISPIPeripheral, IGPIOReceiver
     {
-        public nrf24l01()
+        public NRF24L01()
         {
             IRQ = new GPIO();
             Reset();

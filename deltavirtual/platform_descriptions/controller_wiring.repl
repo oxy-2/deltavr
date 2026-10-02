@@ -9,11 +9,11 @@ btnD2: Miscellaneous.Button @ gpio0 17
     invert: true
     -> gpio0@17
 
-radio: Wireless.nrf24l01 @ spi1
+nrf24: Wireless.NRF24L01 @ spi2
 
 gpio1:
-    11 -> radio@0
-    7 -> radio@1
+    11 -> nrf24@0
+    7 -> nrf24@1
 
-radio:
+nrf24:
     IRQ -> gpio1@6
