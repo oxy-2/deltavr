@@ -1,5 +1,5 @@
-include @nrf24l01.cs
-include @lsm6dsv.cs
+include @platform_descriptions/nrf24l01.cs
+include @platform_descriptions/lsm6dsv.cs
 
 using sysbus
 mach create "headset"
