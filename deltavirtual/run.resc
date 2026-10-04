@@ -7,7 +7,6 @@ machine LoadPlatformDescription @platform_descriptions/headset_wiring.repl
 
 showAnalyzer sysbus.uart0
 
-
 mach create "controller"
 machine LoadPlatformDescription @platform_descriptions/controller_wiring.repl
 
