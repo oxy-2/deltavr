@@ -39,7 +39,10 @@ Lastly I started writing a compilation of useful commands although the software 
 https://lapse.hackclub.com/timelapse/yrCdkR12VN5a
 ---
 Coding :
-The rest of the work this week was recorded with hakatime. I programmed the nrf24l01 module, so the hardware and software, and also started working on the lsm6dsv module.
+Most of the work this week was recorded with hakatime. I programmed the nrf24l01 module and also the lsm6dsv but testing them was unsuccessful as the simulation refuses to launch, so I will need to track down the cause of this, next week.
+
+![[error.png]]
+
 
 ---
 All lapses in one place (3 lapses) :
@@ -47,6 +50,8 @@ Double checking :
 https://lapse.hackclub.com/timelapse/R5sW3ClU1utM
 Components, Renode, Instruction manual :
 https://lapse.hackclub.com/timelapse/yrCdkR12VN5a
+Coding :
+
 Making the devlog :
 https://lapse.hackclub.com/timelapse/VGnJ9vysu7tV
 ---
