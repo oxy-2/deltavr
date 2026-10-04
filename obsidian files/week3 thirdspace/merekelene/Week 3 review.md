@@ -48,6 +48,6 @@ https://lapse.hackclub.com/timelapse/R5sW3ClU1utM
 Components, Renode, Instruction manual :
 https://lapse.hackclub.com/timelapse/yrCdkR12VN5a
 Making the devlog :
-
+https://lapse.hackclub.com/timelapse/VGnJ9vysu7tV
 ---
 :)
