@@ -3,16 +3,23 @@ using System.Linq;
 using Antmicro.Renode.Core;
 using Antmicro.Renode.Logging;
 using Antmicro.Renode.Peripherals.SPI;
+using System.Text;
 
 namespace Antmicro.Renode.Peripherals.Wireless
 {
-    // Simplified NRF24L01(+) model.
-    // Every instance registers itself in a static list; a transmitting radio hands
-    // its packet directly to every other instance that is listening on the same
-    // channel / data rate and has a matching pipe address.
-    // GPIO inputs: 0 = CSN, 1 = CE.  GPIO output: IRQ (active low).
     public class NRF24L01 : ISPIPeripheral, IGPIOReceiver
     {
+
+        public void InjectPacket(string text, int pipe = 1)
+        {
+            lock(Sync)
+            {
+                if(rxFifo.Count >= 3) { return; }
+                rxFifo.Enqueue(new Packet { Payload = Encoding.ASCII.GetBytes(text), Pipe = pipe });
+                irqFlags |= 0x40;   // RX_DR
+                UpdateIrq();
+            }
+        }
         public NRF24L01()
         {
             IRQ = new GPIO();
@@ -145,9 +152,6 @@ namespace Antmicro.Renode.Peripherals.Wireless
             }
         }
 
-        // Deliberately ignored: the nRF SPI controller may call this after every
-        // DMA chunk, while a command can span several chunks. Only CSN going high
-        // ends a command (see OnGPIO).
         public void FinishTransmission()
         {
         }
@@ -180,7 +184,7 @@ namespace Antmicro.Renode.Peripherals.Wireless
             }
         }
 
-        // ---------- radio logic ----------
+        // radio logic
 
         private bool PowerUp => (regs[0x00][0] & 0x02) != 0;
         private bool PrimRx => (regs[0x00][0] & 0x01) != 0;
@@ -268,7 +272,7 @@ namespace Antmicro.Renode.Peripherals.Wireless
             return -1;
         }
 
-        // ---------- registers ----------
+        // registers
 
         private byte GetStatus()
         {
