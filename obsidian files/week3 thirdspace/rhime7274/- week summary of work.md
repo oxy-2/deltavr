@@ -35,3 +35,15 @@ the last real thing i can think of that i did was the great organization and nam
 
 
 by oxy, with love <3
+
+
+
+also heres all the lapse links:
+https://lapse.hackclub.com/timelapse/YUHhA-L_d-OA
+https://lapse.hackclub.com/timelapse/loU83V0GBWJ2
+https://lapse.hackclub.com/timelapse/_5qo_6D7EQ2-
+https://lapse.hackclub.com/timelapse/pCRKZhMesPzA
+https://lapse.hackclub.com/timelapse/ALP4UK4dRvD0
+https://lapse.hackclub.com/timelapse/1PGKenvypzti
+
+(they are in chronological order btw)
