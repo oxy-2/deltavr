@@ -17,3 +17,9 @@ gpio1:
 
 nrf24:
     IRQ -> gpio1@6
+
+imu: Sensors.LSM^DSV @ spi2
+
+gpio0:
+    15 -> led@0
+    2 -> imu@0

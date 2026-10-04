@@ -1,4 +1,6 @@
-include @platform_descriptions/nrf24l01.cs
+include @nrf24l01.cs
+include @lsm6dsv.cs
+
 using sysbus
 mach create "headset"
 machine LoadPlatformDescription @platform_descriptions/headset_wiring.repl
