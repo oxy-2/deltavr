@@ -1,153 +1,347 @@
-// Minimal raw-SPI NRF24L01 driver. Same code for both boards;
-// one calls nrf_start_tx(), the other nrf_start_rx().
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+using System.Collections.Generic;
+using System.Linq;
+using Antmicro.Renode.Core;
+using Antmicro.Renode.Logging;
+using Antmicro.Renode.Peripherals.SPI;
+using System.Text;
 
-// ---- YOU PROVIDE THESE (SPIM2 transfer, GPIO, delays) ----
-// spi_transfer: full duplex, mode 0, MSB first, rx may be NULL.
-void spi_transfer(const uint8_t *tx, uint8_t *rx, uint32_t len);
-void gpio_write(uint32_t pin, bool level);
-bool gpio_read(uint32_t pin);
-void delay_us(uint32_t us);
-void delay_ms(uint32_t ms);
-
-// nRF52 pin number = port * 32 + pin
-#define PIN(port, n) ((port) * 32 + (n))
-#define NRF_CE   PIN(1, 7)    // Pro Micro 33 -> module pin 3
-#define NRF_CSN  PIN(1, 11)   // Pro Micro 15 -> module pin 4
-#define NRF_IRQ  PIN(1, 6)    // Pro Micro 12 -> module pin 8 (optional, active low)
-
-// Commands
-#define CMD_R_REG    0x00
-#define CMD_W_REG    0x20
-#define CMD_R_RX     0x61
-#define CMD_W_TX     0xA0
-#define CMD_FLUSH_TX 0xE1
-#define CMD_FLUSH_RX 0xE2
-#define CMD_NOP      0xFF
-
-// Registers
-#define REG_CONFIG      0x00
-#define REG_EN_AA       0x01
-#define REG_EN_RXADDR   0x02
-#define REG_SETUP_AW    0x03
-#define REG_SETUP_RETR  0x04
-#define REG_RF_CH       0x05
-#define REG_RF_SETUP    0x06
-#define REG_STATUS      0x07
-#define REG_RX_ADDR_P0  0x0A
-#define REG_TX_ADDR     0x10
-#define REG_RX_PW_P0    0x11
-#define REG_FIFO_STATUS 0x17
-
-// STATUS bits
-#define ST_RX_DR  0x40
-#define ST_TX_DS  0x20
-#define ST_MAX_RT 0x10
-
-#define PAYLOAD_LEN 32
-#define RF_CHANNEL  76
-static const uint8_t ADDR[5] = { 'D', 'V', 'R', '0', '1' };   // same on both boards
-
-// One SPI transfer per command, with CSN low for the whole thing.
-// (The Renode model ends a command when CSN goes high.)
-static uint8_t nrf_cmd(uint8_t cmd, const uint8_t *tx, uint8_t *rx, uint8_t len)
+namespace Antmicro.Renode.Peripherals.Wireless
 {
-    uint8_t txb[1 + PAYLOAD_LEN], rxb[1 + PAYLOAD_LEN];
-    txb[0] = cmd;
-    if (tx) memcpy(&txb[1], tx, len); else memset(&txb[1], 0, len);
+    public class NRF24L01 : ISPIPeripheral, IGPIOReceiver
+    {
 
-    gpio_write(NRF_CSN, 0);
-    spi_transfer(txb, rxb, len + 1);
-    gpio_write(NRF_CSN, 1);
+        public void InjectPacket(string text, int pipe = 1)
+        {
+            lock(Sync)
+            {
+                if(rxFifo.Count >= 3) { return; }
+                rxFifo.Enqueue(new Packet { Payload = Encoding.ASCII.GetBytes(text), Pipe = pipe });
+                irqFlags |= 0x40;   // RX_DR
+                UpdateIrq();
+            }
+        }
+        public NRF24L01()
+        {
+            IRQ = new GPIO();
+            lock(Sync)
+            {
+                Instances.Add(this);
+            }
+            Reset();
+        }
 
-    if (rx) memcpy(rx, &rxb[1], len);
-    return rxb[0];                      // first byte back is always STATUS
-}
+        public GPIO IRQ { get; }
 
-static void    write_reg(uint8_t reg, uint8_t v) { nrf_cmd(CMD_W_REG | reg, &v, NULL, 1); }
-static uint8_t read_reg(uint8_t reg)             { uint8_t v; nrf_cmd(CMD_R_REG | reg, NULL, &v, 1); return v; }
-static void    write_addr(uint8_t reg)           { nrf_cmd(CMD_W_REG | reg, ADDR, NULL, 5); }
+        public void Reset()
+        {
+            lock(Sync)
+            {
+                regs = new byte[0x1E][];
+                for(var i = 0; i < regs.Length; i++)
+                {
+                    regs[i] = new byte[1];
+                }
+                regs[0x0A] = new byte[] { 0xE7, 0xE7, 0xE7, 0xE7, 0xE7 };
+                regs[0x0B] = new byte[] { 0xC2, 0xC2, 0xC2, 0xC2, 0xC2 };
+                regs[0x10] = new byte[] { 0xE7, 0xE7, 0xE7, 0xE7, 0xE7 };
+                regs[0x00][0] = 0x08;  // CONFIG
+                regs[0x01][0] = 0x3F;  // EN_AA
+                regs[0x02][0] = 0x03;  // EN_RXADDR
+                regs[0x03][0] = 0x03;  // SETUP_AW (5 bytes)
+                regs[0x04][0] = 0x03;  // SETUP_RETR
+                regs[0x05][0] = 0x02;  // RF_CH
+                regs[0x06][0] = 0x0E;  // RF_SETUP
+                regs[0x0C][0] = 0xC3;
+                regs[0x0D][0] = 0xC4;
+                regs[0x0E][0] = 0xC5;
+                regs[0x0F][0] = 0xC6;
+                regs[0x1C][0] = 0x00;  // DYNPD
+                regs[0x1D][0] = 0x00;  // FEATURE
 
-static void nrf_common_init(void)
-{
-    gpio_write(NRF_CSN, 1);
-    gpio_write(NRF_CE, 0);
-    delay_ms(5);
+                rxFifo.Clear();
+                txFifo.Clear();
+                txBuffer.Clear();
+                irqFlags = 0;
+                command = null;
+                csnHigh = true;
+                ce = false;
+                UpdateIrq();
+            }
+        }
 
-    write_reg(REG_SETUP_AW, 0x03);          // 5-byte addresses
-    write_reg(REG_RF_CH, RF_CHANNEL);
-    write_reg(REG_RF_SETUP, 0x06);          // 1 Mbps, 0 dBm
-    write_reg(REG_EN_AA, 0x01);             // auto-ack on pipe 0
-    write_reg(REG_SETUP_RETR, 0x00);
-    write_reg(REG_RX_PW_P0, PAYLOAD_LEN);   // fixed payload length
-    nrf_cmd(CMD_FLUSH_TX, NULL, NULL, 0);
-    nrf_cmd(CMD_FLUSH_RX, NULL, NULL, 0);
-    write_reg(REG_STATUS, ST_RX_DR | ST_TX_DS | ST_MAX_RT);   // clear flags
-}
+        public void OnGPIO(int number, bool value)
+        {
+            lock(Sync)
+            {
+                if(number == 0)
+                {
+                    csnHigh = value;
+                    if(value)
+                    {
+                        EndCommand();
+                    }
+                }
+                else if(number == 1)
+                {
+                    ce = value;
+                    if(ce)
+                    {
+                        TryTransmit();
+                    }
+                }
+            }
+        }
 
-// ---- Receiver ----
-void nrf_start_rx(void)
-{
-    nrf_common_init();
-    write_addr(REG_RX_ADDR_P0);
-    write_reg(REG_EN_RXADDR, 0x01);         // pipe 0 only
-    write_reg(REG_CONFIG, 0x0B);            // EN_CRC | PWR_UP | PRIM_RX
-    delay_ms(2);                            // power-up settling
-    gpio_write(NRF_CE, 1);                  // CE high = listening
-}
+        public byte Transmit(byte data)
+        {
+            lock(Sync)
+            {
+                if(csnHigh)
+                {
+                    return 0xFF;
+                }
 
-// Returns true and fills buf (PAYLOAD_LEN bytes) if a packet was waiting.
-bool nrf_receive(uint8_t *buf)
-{
-    if (read_reg(REG_FIFO_STATUS) & 0x01) return false;   // RX_EMPTY
-    nrf_cmd(CMD_R_RX, NULL, buf, PAYLOAD_LEN);
-    if (read_reg(REG_FIFO_STATUS) & 0x01)
-        write_reg(REG_STATUS, ST_RX_DR);                   // FIFO drained: clear flag
-    return true;
-}
+                if(!command.HasValue)
+                {
+                    command = data;
+                    index = 0;
+                    txBuffer.Clear();
+                    if(data == 0xE1) { txFifo.Clear(); }          // FLUSH_TX
+                    else if(data == 0xE2) { rxFifo.Clear(); }     // FLUSH_RX
+                    return GetStatus();
+                }
 
-// ---- Transmitter ----
-void nrf_start_tx(void)
-{
-    nrf_common_init();
-    write_addr(REG_TX_ADDR);
-    write_addr(REG_RX_ADDR_P0);             // pipe 0 receives the auto-ack
-    write_reg(REG_EN_RXADDR, 0x01);
-    write_reg(REG_CONFIG, 0x0A);            // EN_CRC | PWR_UP, PRIM_RX = 0
-    delay_ms(2);
-}
+                var cmd = command.Value;
+                byte result = 0;
 
-// data must be PAYLOAD_LEN bytes. Returns true if the packet was delivered.
-bool nrf_send(const uint8_t *data)
-{
-    nrf_cmd(CMD_W_TX, data, NULL, PAYLOAD_LEN);
-    gpio_write(NRF_CE, 1);
-    delay_us(15);                           // CE pulse > 10 us
-    gpio_write(NRF_CE, 0);
+                if((cmd & 0xE0) == 0x00)                          // R_REGISTER
+                {
+                    result = ReadReg(cmd & 0x1F, index);
+                }
+                else if((cmd & 0xE0) == 0x20)                     // W_REGISTER
+                {
+                    WriteReg(cmd & 0x1F, index, data);
+                }
+                else if(cmd == 0x61)                              // R_RX_PAYLOAD
+                {
+                    if(rxFifo.Count > 0)
+                    {
+                        var p = rxFifo.Peek().Payload;
+                        result = index < p.Length ? p[index] : (byte)0;
+                    }
+                }
+                else if(cmd == 0x60)                              // R_RX_PL_WID
+                {
+                    result = rxFifo.Count > 0 ? (byte)rxFifo.Peek().Payload.Length : (byte)0;
+                }
+                else if(cmd == 0xA0 || cmd == 0xB0)               // W_TX_PAYLOAD (/NO_ACK)
+                {
+                    txBuffer.Add(data);
+                }
+                else if(cmd == 0xE1 || cmd == 0xE2 || cmd == 0xFF || (cmd & 0xF8) == 0xA8)
+                {
+                    // FLUSH / NOP / W_ACK_PAYLOAD: nothing more to do
+                }
+                else
+                {
+                    this.Log(LogLevel.Warning, "Unhandled command 0x{0:X2}", cmd);
+                }
 
-    uint8_t st = 0;
-    for (int i = 0; i < 1000; i++) {        // poll STATUS via NOP
-        st = nrf_cmd(CMD_NOP, NULL, NULL, 0);
-        if (st & (ST_TX_DS | ST_MAX_RT)) break;
-        delay_us(100);
+                index++;
+                return result;
+            }
+        }
+
+        public void FinishTransmission()
+        {
+        }
+
+        private void EndCommand()
+        {
+            if(!command.HasValue)
+            {
+                return;
+            }
+            var cmd = command.Value;
+            command = null;
+
+            if((cmd == 0xA0 || cmd == 0xB0) && txBuffer.Count > 0)
+            {
+                if(txFifo.Count < 3)
+                {
+                    txFifo.Enqueue(txBuffer.ToArray());
+                }
+                else
+                {
+                    this.Log(LogLevel.Warning, "TX FIFO full, payload dropped");
+                }
+                txBuffer.Clear();
+                TryTransmit();
+            }
+            else if(cmd == 0x61 && rxFifo.Count > 0)
+            {
+                rxFifo.Dequeue();
+            }
+        }
+
+        // radio logic
+
+        private bool PowerUp => (regs[0x00][0] & 0x02) != 0;
+        private bool PrimRx => (regs[0x00][0] & 0x01) != 0;
+        private int Channel => regs[0x05][0] & 0x7F;
+        private int AddrWidth => regs[0x03][0] == 1 ? 3 : (regs[0x03][0] == 2 ? 4 : 5);
+
+        private void TryTransmit()
+        {
+            while(ce && PowerUp && !PrimRx && txFifo.Count > 0 && (irqFlags & 0x10) == 0)
+            {
+                var payload = txFifo.Peek();
+                var address = regs[0x10].Take(AddrWidth).ToArray();
+                var delivered = false;
+
+                foreach(var other in Instances.Where(x => !ReferenceEquals(x, this)).ToList())
+                {
+                    if(other.Receive(Channel, regs[0x06][0] & 0x28, address, payload))
+                    {
+                        delivered = true;
+                    }
+                }
+
+                var autoAck = (regs[0x01][0] & 0x01) != 0;
+                if(delivered || !autoAck)
+                {
+                    txFifo.Dequeue();
+                    irqFlags |= 0x20;   // TX_DS
+                }
+                else
+                {
+                    irqFlags |= 0x10;   // MAX_RT, payload stays in the FIFO
+                }
+                this.Log(LogLevel.Debug, "TX {0} bytes ch{1}: delivered={2}", payload.Length, Channel, delivered);
+                UpdateIrq();
+            }
+        }
+
+        private bool Receive(int channel, int rate, byte[] address, byte[] payload)
+        {
+            if(!PowerUp || !PrimRx || !ce || Channel != channel || (regs[0x06][0] & 0x28) != rate)
+            {
+                return false;
+            }
+            var pipe = FindPipe(address);
+            if(pipe < 0)
+            {
+                return false;
+            }
+            if(rxFifo.Count >= 3)
+            {
+                return false;
+            }
+            rxFifo.Enqueue(new Packet { Payload = (byte[])payload.Clone(), Pipe = pipe });
+            irqFlags |= 0x40;           // RX_DR
+            this.Log(LogLevel.Debug, "RX {0} bytes on pipe {1}", payload.Length, pipe);
+            UpdateIrq();
+            return true;
+        }
+
+        private int FindPipe(byte[] address)
+        {
+            var w = AddrWidth;
+            if(address.Length < w)
+            {
+                return -1;
+            }
+            for(var pipe = 0; pipe < 6; pipe++)
+            {
+                if((regs[0x02][0] & (1 << pipe)) == 0)
+                {
+                    continue;
+                }
+                byte[] pipeAddr;
+                if(pipe == 0) { pipeAddr = (byte[])regs[0x0A].Clone(); }
+                else
+                {
+                    pipeAddr = (byte[])regs[0x0B].Clone();
+                    if(pipe > 1) { pipeAddr[0] = regs[0x0A + pipe][0]; }
+                }
+                if(pipeAddr.Take(w).SequenceEqual(address.Take(w)))
+                {
+                    return pipe;
+                }
+            }
+            return -1;
+        }
+
+        // registers
+
+        private byte GetStatus()
+        {
+            var pipe = rxFifo.Count > 0 ? rxFifo.Peek().Pipe : 7;
+            return (byte)((irqFlags & 0x70) | (pipe << 1) | (txFifo.Count >= 3 ? 1 : 0));
+        }
+
+        private byte ReadReg(int reg, int i)
+        {
+            if(reg >= regs.Length) { return 0; }
+            if(reg == 0x07) { return GetStatus(); }
+            if(reg == 0x17)
+            {
+                return (byte)((rxFifo.Count == 0 ? 0x01 : 0) | (rxFifo.Count >= 3 ? 0x02 : 0)
+                            | (txFifo.Count == 0 ? 0x10 : 0) | (txFifo.Count >= 3 ? 0x20 : 0));
+            }
+            return i < regs[reg].Length ? regs[reg][i] : (byte)0;
+        }
+
+        private void WriteReg(int reg, int i, byte data)
+        {
+            if(reg >= regs.Length) { return; }
+            if(reg == 0x07)
+            {
+                irqFlags &= (byte)~(data & 0x70);   // write 1 to clear
+                UpdateIrq();
+                TryTransmit();
+                return;
+            }
+            if(reg == 0x08 || reg == 0x09 || reg == 0x17) { return; }  // read-only
+            if(i < regs[reg].Length)
+            {
+                regs[reg][i] = data;
+            }
+            if(reg == 0x00)
+            {
+                UpdateIrq();
+                TryTransmit();
+            }
+        }
+
+        private void UpdateIrq()
+        {
+            var cfg = regs[0x00][0];
+            var active = ((irqFlags & 0x40) != 0 && (cfg & 0x40) == 0)
+                      || ((irqFlags & 0x20) != 0 && (cfg & 0x20) == 0)
+                      || ((irqFlags & 0x10) != 0 && (cfg & 0x10) == 0);
+            IRQ.Set(!active);   // active low
+        }
+
+        private class Packet
+        {
+            public byte[] Payload;
+            public int Pipe;
+        }
+
+        private byte[][] regs;
+        private readonly Queue<Packet> rxFifo = new Queue<Packet>();
+        private readonly Queue<byte[]> txFifo = new Queue<byte[]>();
+        private readonly List<byte> txBuffer = new List<byte>();
+        private byte? command;
+        private int index;
+        private byte irqFlags;
+        private bool csnHigh = true;
+        private bool ce;
+
+        // One global lock: the two machines may run on different threads, and
+        // radios call into each other, so per-instance locks could deadlock.
+        private static readonly object Sync = new object();
+        private static readonly List<NRF24L01> Instances = new List<NRF24L01>();
     }
-    write_reg(REG_STATUS, ST_TX_DS | ST_MAX_RT);
-    if (st & ST_MAX_RT) nrf_cmd(CMD_FLUSH_TX, NULL, NULL, 0);
-    return (st & ST_TX_DS) != 0;
 }
-
-/* Usage:
- *
- * // controller
- * nrf_start_tx();
- * delay_ms(100);                       // let the receiver start listening first
- * uint8_t msg[PAYLOAD_LEN] = "hello";
- * bool ok = nrf_send(msg);             // print ok on UART
- *
- * // headset
- * nrf_start_rx();
- * uint8_t buf[PAYLOAD_LEN];
- * while (1) { if (nrf_receive(buf)) { /\* print buf on UART *\/ } }
- */
