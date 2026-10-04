@@ -43,15 +43,15 @@ Most of the work this week was recorded with hakatime. I programmed the nrf24l01
 
 ![[error.png]]
 
-
+https://lapse.hackclub.com/timelapse/Oa-JVPVgzEIj
 ---
-All lapses in one place (3 lapses) :
+All lapses in one place (4 lapses) :
 Double checking :
 https://lapse.hackclub.com/timelapse/R5sW3ClU1utM
 Components, Renode, Instruction manual :
 https://lapse.hackclub.com/timelapse/yrCdkR12VN5a
 Coding :
-
+https://lapse.hackclub.com/timelapse/Oa-JVPVgzEIj
 Making the devlog :
 https://lapse.hackclub.com/timelapse/VGnJ9vysu7tV
 ---
