@@ -91,7 +91,7 @@ object at front focal point → image at infinity (relaxed eye). ffl is measured
 
 $$\mathrm{FFL} = f_{\mathrm{eq}}\left(1 - \frac{d}{f_2}\right) = 17.19 \times 0.99333 = 17.08\ \mathrm{mm}$$
 
-principal-plane offset from $L_1$ is $\bar{H_1} = -f_{\mathrm{eq}}\, d / f_2 \approx -0.12\ \mathrm{mm}$ — negligible. treat the f40 groove plane as the front reference.
+principal-plane offset from $L_1$ is $\bar{H_1} = -f_{\mathrm{eq}}\, d / f_2 \approx -0.12\ \mathrm{mm}$. negligible. treat the f40 groove plane as the front reference.
 
 **mechanical gap (flat → display):**
 
@@ -140,7 +140,7 @@ vignetting eats fov when relief is large vs d.70 clear aperture. 10 mm is tight 
 
 ### optical module
 
-ends at the outer face of the eye lens — **not** at the cornea.
+ends at the outer face of the eye lens, **not** at the cornea.
 
 $$L_{\mathrm{mod}} = g_{\mathrm{disp}} + t_1 + d + t_2$$
 
@@ -187,7 +187,7 @@ expect **5–10° less** on the diagonal once relief and ø70 fight you. still q
 
 ---
 
-## 10. alternate stack — two f30s
+## 10. alternate stack (two f30s)
 
 only real shrink lever. same blank, same cutout, one part number.
 
@@ -206,16 +206,16 @@ $$\mathrm{FOV}_{1\mathrm{D}} = 2\arctan(13.3/15) = 82.0°$$
 
 ---
 
-## 11. diameter — keep ø70
+## 11. diameter (keep ø70)
 
 matching diameters with **both** fl30 and fl40 in the listing:
 
 | diameter | fl30 | fl40 | both? |
 |---|---|---|---|
 | **d70** | yes | **yes** | **only option** |
-| d90 | yes | — (fl50) | no |
-| d100 | — | yes | no |
-| d60 | yes | — (fl80) | no |
+| d90 | yes | (fl50) | no |
+| d100 | | yes | no |
+| d60 | yes | (fl80) | no |
 | d50 / d40 | no | no | no |
 
 d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
@@ -250,8 +250,8 @@ d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
 
 - **$t = 2\ \mathrm{mm}$ does not change $f$.** fresnel power is the groove prism angles. thickness only enters as $g_{\mathrm{disp}} = \mathrm{FFL} - t$ because catalog fl is from the grooves.
 - **cutting the outline does not change $f$.** trim is mechanical only.
-- **thick-lens principal-plane shift** $\bar{H} \sim t/n \approx 1.3\ \mathrm{mm}$ matters for bulk lenses. for a fresnel with all power at one face, the principal plane sits at the grooves — already handled.
-- **seidel aberrations, distortion, astigmatism** — not first-order. the pair (stronger toward the eye) trims some spherical aberration vs a single element; it does not change the first-order numbers above.
+- **thick-lens principal-plane shift** $\bar{H} \sim t/n \approx 1.3\ \mathrm{mm}$ matters for bulk lenses. for a fresnel with all power at one face, the principal plane sits at the grooves. already handled.
+- **seidel aberrations, distortion, astigmatism.** not first-order. the pair (stronger toward the eye) trims some spherical aberration vs a single element; it does not change the first-order numbers above.
 
 ---
 
@@ -261,7 +261,7 @@ d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
 2. grooves meet in the middle; flats face display and eye.
 3. f30 (shorter fl, "more focused") goes toward the **eye**. f40 toward the **display**.
 4. spacer is a ø70 **ring** (od 70, id = clear aperture). nothing plastic over the optical zone.
-5. no soldering iron on faces — acrylic cement on the outer rim only, or a mechanical ring cassette. heat warps grooves and the lens is dead.
+5. no soldering iron on faces. acrylic cement on the outer rim only, or a mechanical ring cassette. heat warps grooves and the lens is dead.
 6. mirror the cut outline for left/right. hand-trim is the known-good path.
 7. shim the display gap. 15.0 mm nominal, 14–16 mm is the useful window.
 
