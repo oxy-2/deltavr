@@ -2,7 +2,7 @@
 
 > [!summary] summary
 > d.70 pmma fresnels, **2 mm** thick each. stack is **f40 (display) + f30 (eye)**, grooves side meeting at the middle seperated by the gasket (*0.2mm*)
-> combined efl **≈ 17.2 mm**. display gap is **15.0 mm**, eye relief is **10 mm**.
+> combined efl **≈ 17.2 mm**. display gap is **15.0 mm**. eye relief is **20 mm** design (15–22 band). 10 mm is lashes-on-glass and the nose will not fit.
 
 **parts:** d70 fl30 (top) + d70 fl40(bottom), 5 € ish each also buy spares. 
 
@@ -23,7 +23,7 @@ display active surface
    ▼
    f30 fresnel  2 mm       grooves inward, flat toward eye <- top is more focused
    │
-   │  10 mm air            eye relief (12–15 if glasses)
+   │  20 mm air            eye relief (15–22 band, 25 if glasses)
    ▼
 cornea of eye
 ```
@@ -34,9 +34,9 @@ cornea of eye
 | f40 thickness         | **2.0 mm**   | catalog, cat. shouldnt change                                   |
 | between lenses        | **0.2 mm**   | grooves face each other. ring spacer, not a disc                |
 | f30 thickness         | **2.0 mm**   | catalog                                                         |
-| f30 flat -> eye       | **10 mm**    | Min. 12–15 mm for glasses                                       |
+| f30 flat -> eye       | **20 mm**    | design. 15–22 band. 25 if glasses. 10 = lashes + nose smash     |
 | **optical module**    | **19.2 mm**  | display face → outer face of eye lens. cylinder depth           |
-| **display -> cornea** | **~29.2 mm** | includes eye-relief air. do **not** put this in the barrel      |
+| **display -> cornea** | **~39.2 mm** | includes eye-relief air. do **not** put this in the barrel      |
 
 ---
 
@@ -126,13 +126,30 @@ firstly, eye relief is mechanical not optical:
 
 $$g_{\mathrm{eye}} = \mathrm{cornea} - \mathrm{f30\ flat}$$
 
-| use               | $g_{\mathrm{eye}}$ |
-| ----------------- | ------------------ |
-| lashes / max fov  | 8–10 mm            |
-| no-glasses design | 10 mm              |
-| glasses           | 12–15 mm           |
+| use                      | $g_{\mathrm{eye}}$ |
+| ------------------------ | ------------------ |
+| lashes / fantasy         | 8–10 mm            |
+| aggressive nose trim     | 15–18 mm           |
+| **design (fits a face)** | **20 mm**          |
+| glasses / easy fit       | 22–25 mm           |
 
-vignetting eats fov when relief is large vs d.70 clear aperture. 10 mm is tight already.
+10 mm is eyelashes on the flat. the nose also will not fit: nose tip sits ~25–45 mm in front of the cornea, so at 10 mm relief the bridge is still deep inside the lens volume. 20–25 mm is the real mechanical floor for a full ø70 stack and a normal nose. closer than that needs a molded face interface almost nobody will print right on try one.
+
+first-order fov does **not** care about relief. relief buys eye box and clearance.
+
+$$r_{\mathrm{clear}} \gtrsim g_{\mathrm{eye}} \cdot \tan(\mathrm{FOV}/2) + \mathrm{eye\ box}/2 + r_{\mathrm{pupil}}$$
+
+at fov 75°/axis (tan 38° ≈ 0.78) and a 5 mm eye box:
+
+| $g_{\mathrm{eye}}$ | $r_{\mathrm{clear}}$ needed | note |
+|---|---|---|
+| 10 mm | ~16 mm | easy, but lashes |
+| 20 mm | ~23 mm | keep this radius on the **temple + top** |
+| 25 mm | ~27 mm | almost untrimmed ø70, nose dies |
+
+so: do **not** shrink the whole lens. cut a **nose bite only** (manolo kidney / d-shape). keep r = 35 mm on the outer, top, and bottom-temporal edges. inboard at pupil height, clear down to ~18 mm from the optical center (≈13 mm from midline at 63 ipd). below pupil height the bite opens more for the nose body.
+
+inboard eye box will be tighter than outboard. that is normal. lose a little binocular overlap before you lose temple fov.
 
 ---
 
@@ -148,18 +165,27 @@ $$L_{\mathrm{mod}} = 15.0 + 2.0 + 0.2 + 2.0 = \mathbf{19.2\ \mathrm{mm}}$$
 
 ### display → cornea
 
-$$\boxed{L_{\mathrm{total}} = g_{\mathrm{disp}} + t_1 + d + t_2 + g_{\mathrm{eye}} = 15.0 + 2.0 + 0.2 + 2.0 + 10.0 = 29.2\ \mathrm{mm}}$$
+$$\boxed{L_{\mathrm{total}} = g_{\mathrm{disp}} + t_1 + d + t_2 + g_{\mathrm{eye}} = 15.0 + 2.0 + 0.2 + 2.0 + 20.0 = 39.2\ \mathrm{mm}}$$
 
-comfort ($g_{\mathrm{eye}} = 13.2$): $32.4\ \mathrm{mm}$.
+| $g_{\mathrm{eye}}$ | $L_{\mathrm{total}}$ display→cornea | housing $W_{\mathrm{FB}}$ (approx) |
+|---|---|---|
+| 15 mm | 34.2 mm | ~44 mm |
+| **20 mm (design)** | **39.2 mm** | **~49 mm** |
+| 25 mm | 44.2 mm | ~54 mm |
+
+quest 2 body is ~48 mm. 20 mm relief puts us at quest-class thickness, not "thin". the thin goal dies here unless relief or the optical module shrinks. do not fake it with 10 mm.
 
 ### housing front-back (mechanical)
 
 $$W_{\mathrm{FB}} = t_{\mathrm{display\ PCB}} + t_{\mathrm{cover}} + L_{\mathrm{mod}} + g_{\mathrm{eye}} + t_{\mathrm{face\ gasket}}$$
 
-$$\approx 5 + 1 + 19.2 + 10 + 4 \approx \mathbf{39\ \mathrm{mm}} \quad (\sim 35\ \mathrm{mm}\ \text{if pcb+gasket squeezed})$$
+$$\approx 5 + 1 + 19.2 + 20 + 4 \approx \mathbf{49\ \mathrm{mm}} \quad (\sim 45\ \mathrm{mm}\ \text{if pcb+gasket squeezed})$$
 
 > [!danger] dont double count
-> do not put eye relief inside the optical cylinder. module is 19.2 mm. the 10 mm of air in front of the eye is outside the barrel.
+> do not put eye relief inside the optical cylinder. module is 19.2 mm. the 20 mm of air in front of the eye is outside the barrel.
+
+> [!warning] nose bridge
+> no solid bar between the lens bottoms. the nose has to climb into the open gap after the nose bite. route structure over the top and along the temples. face gasket gets a deep nose cutout that matches the lens bite.
 
 ---
 
@@ -181,9 +207,11 @@ $$\boxed{\mathrm{FOV} = 2 \arctan\left(\frac{d_{\mathrm{sensor}}}{2\, f_{\mathrm
 
 ### real (relief + diameter losses)
 
-$$\mathrm{FOV}_{\mathrm{real}} = 2 \arctan\left(\frac{\min(h,\ r_{\mathrm{clear}})}{g_{\mathrm{eye}} + f_{\mathrm{eq}}}\right) \cdot k_{\mathrm{eyebox}}$$
+relief does not change the 75°/axis first-order number. it changes whether your pupil can sit in the ray bundle (eye box) and how hard the nose bite clips the inboard field.
 
-expect **5–10° less** on the diagonal once relief and ø70 fight you. still quest 2-class (~75° / ~95° ideal).
+$$r_{\mathrm{clear}} \gtrsim g_{\mathrm{eye}} \cdot \tan(\mathrm{FOV}/2) + \mathrm{eye\ box}/2 + r_{\mathrm{pupil}}$$
+
+keep r ≥ 23 mm on temple/top at 20 mm relief. nose bite can go down to ~18 mm from the optical center inboard. expect **5–10° less** on the diagonal after nose bite + a little eye-box loss. still quest 2-class (~75° / ~95° ideal).
 
 ---
 
@@ -195,14 +223,16 @@ $$f_{\mathrm{eq}} = \frac{30 \cdot 30}{30 + 30} = 15.0\ \mathrm{mm}$$
 
 $$g_{\mathrm{disp}} = 15.0 - 2.0 = 13.0\ \mathrm{mm}$$
 
-$$L_{\mathrm{total}} = 13 + 2 + 0.2 + 2 + 10 = 27.2\ \mathrm{mm}$$
+$$L_{\mathrm{total}} = 13 + 2 + 0.2 + 2 + 20 = 37.2\ \mathrm{mm}$$
 
 $$\mathrm{FOV}_{1\mathrm{D}} = 2\arctan(13.3/15) = 82.0°$$
 
-| stack | efl | display gap | display→cornea | fov / axis |
+| stack | efl | display gap | display→cornea ($g_{\mathrm{eye}}=20$) | fov / axis |
 |---|---|---|---|---|
-| **f40 + f30** (current) | 17.2 mm | 15.0 mm | 29.2 mm | 75° |
-| f30 + f30 | 15.0 mm | 13.0 mm | 27.2 mm | 82° |
+| **f40 + f30** (current) | 17.2 mm | 15.0 mm | 39.2 mm | 75° |
+| f30 + f30 | 15.0 mm | 13.0 mm | 37.2 mm | 82° |
+
+f30+f30 buys +7°/axis and 2 mm less path. it does not fix the nose. nose is trim + gasket + open nose bridge.
 
 ---
 
@@ -235,9 +265,9 @@ d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
 | display gap (mech) | $g_{\mathrm{disp}}$ | $\mathrm{FFL} - t_1$ | **15.0 mm** |
 | focus target | $d_i$ | design choice | $\infty$ or $-250\ \mathrm{mm}$ |
 | object distance | $d_o$ | $\left(\frac{1}{f_{\mathrm{eq}}}+\frac{1}{\|d_i\|}\right)^{-1}$ | 17.1 / 16.1 mm |
-| eye relief | $g_{\mathrm{eye}}$ | mechanical | **10 mm** |
+| eye relief | $g_{\mathrm{eye}}$ | mechanical | **20 mm** (15–22) |
 | optical module | $L_{\mathrm{mod}}$ | $g_{\mathrm{disp}}+t_1+d+t_2$ | **19.2 mm** |
-| display→cornea | $L_{\mathrm{total}}$ | $L_{\mathrm{mod}}+g_{\mathrm{eye}}$ | **29.2 mm** |
+| display→cornea | $L_{\mathrm{total}}$ | $L_{\mathrm{mod}}+g_{\mathrm{eye}}$ | **39.2 mm** |
 | half panel | $h$ | $w/2$ | 13.3 mm |
 | fov / axis | $\mathrm{FOV}_{1\mathrm{D}}$ | $2\arctan(h/f_{\mathrm{eq}})$ | **75°** |
 | fov diagonal | $\mathrm{FOV}_{\mathrm{diag}}$ | $2\arctan(h\sqrt{2}/f_{\mathrm{eq}})$ | **95°** |
@@ -264,6 +294,9 @@ d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
 5. no soldering iron on faces. acrylic cement on the outer rim only, or a mechanical ring cassette. heat warps grooves and the lens is dead.
 6. mirror the cut outline for left/right. hand-trim is the known-good path.
 7. shim the display gap. 15.0 mm nominal, 14–16 mm is the useful window.
+8. **nose bite only**, do not shrink the whole blank. keep r = 35 mm outer/top. inboard at pupil height cut to ~18 mm from optical center. below pupil the bite opens for the nose body. see `deltavr-lens-cut.png`.
+9. face gasket gets a deep nose cutout matching the bite. no solid nose bridge bar between the lens bottoms.
+10. eye relief 20 mm nominal. 15 mm if the trim is aggressive and the face is narrow. 25 mm for glasses. never 10 mm.
 
 ---
 
@@ -271,7 +304,9 @@ d100 fl120 at 10 € is a trap. cutout work stays valid on ø70.
 
 $$f_{\mathrm{eq}} = 17.2\ \mathrm{mm} \implies g_{\mathrm{disp}} = f_{\mathrm{eq}} - 2 = 15.0\ \mathrm{mm}$$
 
-$$L_{\mathrm{total}} = 15+2+0.2+2+10 = 29.2\ \mathrm{mm}, \quad \mathrm{FOV} \approx 75°/95°$$
+$$L_{\mathrm{total}} = 15+2+0.2+2+20 = 39.2\ \mathrm{mm}, \quad \mathrm{FOV} \approx 75°/95°$$
+
+eye relief 20 mm (15–22). 10 mm is lashes and no nose. fov is set by display / efl, not by relief. relief buys nose clearance and eye box. cut a nose bite, keep the rest of the ø70.
 
 ---
 
