@@ -87,6 +87,9 @@ We upgraded it into a two pillar design and used the custom tool to make it ligh
 *Grand's design after the upgrade*
 
 
+*Lapse for the end of this week:*
+https://lapse.hackclub.com/timelapse/rPwVuJ4YQgMo
+
 Then at the end as per usual I watched back into my lapse's of this week wrote this very entry into the journal.
 ___
 
@@ -98,3 +101,4 @@ https://lapse.hackclub.com/timelapse/0TLkh8-5-ud6
 https://lapse.hackclub.com/timelapse/SU9BkG2umUjU
 https://lapse.hackclub.com/timelapse/FwmQq9IefGpr
 https://lapse.hackclub.com/timelapse/AbF1GRjT-FkW
+https://lapse.hackclub.com/timelapse/rPwVuJ4YQgMo
