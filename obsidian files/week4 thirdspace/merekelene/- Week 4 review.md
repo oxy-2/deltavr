@@ -43,7 +43,7 @@ Looking for Cheeper components (again) :
 Helped Rhime to reduce shipping costs even further by working alongside him and looking for cheeper components on alibaba.
 Looked for displays, found multiple options that ended up being cheeper than wha he had originally, thus reducing the cost of the headset by 50 euros, to keep track of different products i made a file containing all the products that seem a good fit so that Rhime can messag. the sellers afterwards.
 
-![[Screenshot 2026-10-11 at 23.23.34.png]]
+![[list of cheaper components.png]]
 
 The list contains 8 different screens and their drivers.
 
@@ -55,7 +55,10 @@ Lastly i was told to find flux at any quantitty as long as it results in the pri
 
 After todays work, we reduced the price of the whole headset by aproximately 200 euros and it all costs about 500 euros.
 
-
+![[price 1.png]]
+![[price 2.png]]
+![[price 3.png|614]]
+![[price 4.png]]
 
 ---
 All lapses in one place ( 6 lapses ) :
