@@ -45,6 +45,7 @@ https://lapse.hackclub.com/timelapse/7o_Ra6HTPit_
 https://lapse.hackclub.com/timelapse/-oAklivWCg-X
 https://lapse.hackclub.com/timelapse/FVLPfbQAc9g4
 https://lapse.hackclub.com/timelapse/FRaNRrGvYDk-
+https://lapse.hackclub.com/timelapse/2LhyaP9vJPHj
 
 btw the third link in the list is the lapse of me setting up termux or well trying so that me and João at school can have a Linux workspace but it wasn't working out icl and was bad, now we are just gonna get our own entirely wiped and uncontrolled separate chromebooks which will be great cuz less lag too lol as joao mentioned, anyways that will be all goodnight :)
 
