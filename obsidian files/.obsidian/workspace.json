@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "74bc6a91ff82137b",
+        "id": "cb2b7ca5f27bc082",
         "type": "tabs",
         "children": [
           {
-            "id": "53cff709ea76b5cb",
+            "id": "8d7d3b3d056b5f9b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "week3 thirdspace/monizjoao/-Third Week Work.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "-Third Week Work"
+              "title": "New tab"
             }
           }
         ]
@@ -188,8 +184,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "53cff709ea76b5cb",
+  "active": "c96710a9680c1732",
   "lastOpenFiles": [
+    "week4 thirdspace/rhime7274",
+    "week4 thirdspace/monizjoao",
+    "week3 thirdspace/monizjoao/Pasted image 20261004204713.png",
+    "week4 thirdspace/Untitled.md",
+    "week4 thirdspace/merekelene",
+    "week3 thirdspace/monizjoao/-Third Week Work.md",
+    "week4 thirdspace",
+    "New folder",
     "week3 thirdspace/rhime7274/the better mipi to hdmi board.png",
     "week3 thirdspace/rhime7274/parts list organization.png",
     "week3 thirdspace/rhime7274/old lenses.png",
@@ -200,9 +204,6 @@
     "week3 thirdspace/rhime7274/discord pins.png",
     "week3 thirdspace/rhime7274/- week summary of work.md",
     "week3 thirdspace/merekelene/error.png",
-    "week3 thirdspace/monizjoao/Pasted image 20261004220329.png",
-    "week3 thirdspace/monizjoao/Pasted image 20261004220047.png",
-    "week3 thirdspace/monizjoao/-Third Week Work.md",
     "week2 thirdspace/monizjoao/work i did for the second week.md",
     "week1 thirdspace/monizjoao/work i did for the first week.md",
     "week2 thirdspace/rhime7274/week 2 summary of work.md",
