@@ -31,7 +31,7 @@ Unfortunately i do not have a picture of this design, but as it turns out my oth
 
 ![[finished product 3.png]]
 
-We doubled up on my single leg design and hallowed out the middle to save on materials and also weight.
+We doubled up on my single leg design and hallowed out the middle to save on materials and also weight and also removed screw holes i added for attaching them to the main body of the headset, as Rhime decided that almost everything will be printed as a single piece.
 
 https://lapse.hackclub.com/timelapse/ep-2dwqggO4u
 https://lapse.hackclub.com/timelapse/rgKvHyvQrJkn
@@ -60,6 +60,11 @@ After todays work, we reduced the price of the whole headset by aproximately 200
 ![[price 3.png|614]]
 ![[price 4.png]]
 
+https://lapse.hackclub.com/timelapse/83pAjUahhqMC
+
+---
+Sienote : This week has been my favourite thus far, if you ignore the amount of work i had to do on a single sunday (8 hours). Finally trying something new like cad was very fun and i think ill use it even more in the future. Rhime also said that next week he will need my help with pcb ddesign so ill get to grasp the basics on PCB design and kicad.
+
 ---
 All lapses in one place ( 6 lapses ) :
 Discussion about item shipments :
@@ -70,7 +75,7 @@ https://lapse.hackclub.com/timelapse/rgKvHyvQrJkn
 https://lapse.hackclub.com/timelapse/_4_7BfstWG5a
 https://lapse.hackclub.com/timelapse/VZEXYFQZkneL
 Looking for Cheeper components (again) :
-
+https://lapse.hackclub.com/timelapse/83pAjUahhqMC
 
 ---
 :)
