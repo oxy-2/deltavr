@@ -2,12 +2,6 @@ okay so to get started we have some objectives, right now we are putting the mod
 
 to do list:
 
-- [ ] we need to transfer all products to be purchased over to alibaba and make a propper list of all the tools we will be buying
-
-- [ ] apply for funding with hackclub blueprint and the other hackclub funding thing
-
-- [x] figure out the logistics of hand shipping through europe, mainly latvia to poland
-
 - [ ] build a custom pcb for the smol slimes to be sold to reimburse the price of the headset
 
 - [ ] purchase the screens and lenses
@@ -20,19 +14,7 @@ to do list:
 
 - [ ] get and setup the "open" chromebooks that are to be given by Prof. M. 
 
-- [ ] get a good night of sleep
-
-- [ ] read the bible verse that was supposed to be read
-
-- [ ] talk with grand on how shipping and purchasing will be done
-
 - [ ] set a concrete date to buy the imus and also start negotiating the shipping price on other items to be sent to Latvia for lower prices
-
-- [ ] figure out swiss to madeira / slovakia to madeira "buisness trip" if it is selected to be done
-
-- [ ] get confirmation to skip school for days for flight
-
-- [ ] write the portugese translation of your work from pt class
 
 - [ ] test and recalibrate the printer to work with a 0.4 / 0.3 brass nozzle with asa for precision
 
@@ -42,15 +24,9 @@ to do list:
 
 - [ ] get money for next week lunches
 
-- [ ] get 11 eur and pay it back over time to get out of debt
-
-- [ ] take a break tmrw and wake up late
-
 - [ ] propperly maintain documentation
 
 - [ ] setup obsidian and git on the school chromebook for writing documentation in free time
-
-- [ ] talk with joao
 
 - [ ] start work on the modeling of the controllers
 
