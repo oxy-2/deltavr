@@ -12,7 +12,7 @@ Then Oxy helped me cut the lens model to into the shape we wanted the lenses to 
 
 After this I started on the cut lens holders. Using the Use tool i selected the outline of the lenses and offset it by 2mm in thickness. Then I extruded it into 2 separate parts unlike the circle ones that took 3 parts. These parts were initially 2mm in depth each but we had to thicken them up a bit so they ended up being 3mm each. Then Oxy made the shell on the lens holders and then we made holes on them for pins. These are for prototypes only however since the final project is planned that we'll just glue the 3 parts together and the pins are just to hold them temporarily. 
 
-![[image.png]]
+![[price 1.png]]
 *Distance from optical center*
 
 ![[Pasted image 20261004205421.png]]
