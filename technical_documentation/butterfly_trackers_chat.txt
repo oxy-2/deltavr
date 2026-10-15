@@ -1,0 +1,56 @@
+User: how much do butterfly trackers sell for for 16
+Model: **SlimeVR Butterfly Trackers** are sold in several bundled configurations on [Crowd Supply](https://www.crowdsupply.com/slimevr/slimevr-butterfly-trackers). While there is no official package containing exactly 16 trackers, the closest configurations available are the **Motion Capture Set** (which includes **17 trackers** and 2 dongles) or building your own set using a base bundle combined with individual add-ons.
+
+### Standard Pricing Breakdown
+* **Motion Capture Set (17 Trackers + 2 Dongles):** **$763 USD**
+* **Single Standalone Tracker:** **$40 USD** (Note: Does not include a necessary dongle or tracking straps)
+
+### How to get exactly 16 trackers
+If you want exactly 16 trackers, your best pricing option is actually to buy the 17-tracker **Motion Capture Set** for **$763**, as it comes out cheaper per unit and includes necessary dongles. 
+
+Alternatively, if you piece together a smaller bundle with individual add-ons:
+* **Full-Body Set (10 Trackers + 1 Dongle):** $449
+* **6 Additional Single Trackers:** $40 each ($240 total)
+* **Estimated Total for 16 Trackers:** **$689 USD** *(Note: A single dongle only supports up to 10 trackers simultaneously, so you would still need to purchase a secondary dongle kit separately to utilize all 16 devices).*
+
+Would you like to know more about what tracking points are covered by these different packages, or do you need help calculating **shipping and accessory costs** for your specific region?
+
+User: i see so uh i sell in two sets of 10 for 450 each and i make 900 gross and then net will be minus 200 for parts so 700 profit excluding print price
+Model: Your math is **exactly correct** on the basic breakdown: **$900 gross revenue** minus **$200 for parts** equals **$700 in net profit** before factoring in your 3D printing filament, electricity, and labor costs. 
+
+Selling a 10-tracker set for **$450** matches the official Crowd Supply pricing, which makes your sets highly competitive—especially since buyers don't have to wait months for official pre-order manufacturing batches.
+
+To help you protect that **$700 profit margin**, it is worth looking at the hidden or variable costs that will impact your final net take-home pay:
+
+---
+
+### 📦 Hidden Costs to Factor In
+
+* **3D Printing Costs (Filament & Power):** 
+  * A standard 10-tracker case set plus straps/mounts usually consumes about **400g–600g of filament** (approx. **$10–$15** per set using standard PLA/PETG).
+  * Electricity is negligible, usually under **$1–$2** per set.
+* **Strap & Mounting Material:** 
+  * Elastic straps, hook-and-loop velcro, or buckles can add **$15–$25 per set** if you include them in the box. 
+* **Transaction & Marketplace Fees:**
+  * If you sell via **Etsy or eBay**, expect fees to eat roughly **6.5% to 13%** of your gross price (about **$30–$60** per set).
+  * Payment processors like **PayPal Goods & Services** or **Stripe** take around **2.9% + $0.30** (~**$13.50** per set).
+* **Shipping Supplies:**
+  * Boxes, bubble wrap, and tape add about **$3–$5** per order.
+
+---
+
+### 📈 Optimized Financial Summary
+
+If you sell these online (e.g., Etsy) and include basic straps, your real-world net breakdown for two sets will look closer to this:
+
+| Expense Category | Estimated Cost (2 Sets) |
+| :--- | :--- |
+| **Gross Revenue** | **$900.00** |
+| Base Electronics Parts | -$200.00 |
+| Filament & Print Wear | -$25.00 |
+| Straps & Hardware | -$40.00 |
+| Platform & Payment Fees (~10%) | -$90.00 |
+| Packaging Supplies | -$8.00 |
+| **Estimated Real Net Profit** | **~$537.00** |
+
+Are you planning to sell these **locally (cash/no fees)** or through an **online marketplace like Etsy or eBay**? I can help you calculate the exact platform fees or draft a clean **listing description** to help them sell quickly.
