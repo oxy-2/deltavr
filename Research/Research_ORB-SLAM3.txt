@@ -43,4 +43,8 @@ Strengths, weaknesses, and improvement opportunities of the feature-based tracki
 	-Drawbacks:
 		:time-consuming
 		:Motion blur leads to inaccuracy on pure visual
-		:
+		:Cannot obtain enough key features in textureless environments (Pure visual SLAM)
+		:Alternative approach (combining feature extraction with optical-flow tracking) makes global map construction harder and still requires the separate feature extraction/descriptors for the loop closure and relocalization
+	-Visual-inertial uses IMUs which makes it easier to extract features with the same performance as the cameras but with added inertial measurements to mitigate mistakes in high motion situations
+	-ORB-SLAM3 Introduces the Atlas system in case of the tracking being lost
+	-If tracking is lost the current frame queries the Atlas database to see the last keyframes across all maps
