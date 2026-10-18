@@ -2,6 +2,10 @@ okay so to get started we have some objectives, right now we are putting the mod
 
 to do list:
 
+- [ ] write the full firmware and simulate it
+
+- [ ] write the full software and simulate it
+
 - [ ] *~~build a custom pcb for the smol slimes to be sold to reimburse the price of the headset~~*
 
 - [ ] ~~purchase the screens and lenses~~
@@ -30,13 +34,14 @@ to do list:
 
 - [ ] practice soldering and desoldering smd caps and resistors and small qfn parts
 
-- [ ] find out about buying more filament
+- [x] find out about buying more filament
 
 - [ ] figure out abt getting my ship accepted on stardance
 
-- [ ] buy pcbs with stardance
+- [ ] *~~buy pcbs with stardance~~*
 
-- [ ] figure out how to get mimo to be accessible thru my phone
+- [x] figure out how to get mimo to be accessible thru my phone
+
 
 
 
