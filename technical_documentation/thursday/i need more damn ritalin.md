@@ -2,19 +2,19 @@ okay so to get started we have some objectives, right now we are putting the mod
 
 to do list:
 
-- [ ] build a custom pcb for the smol slimes to be sold to reimburse the price of the headset
+- [ ] *~~build a custom pcb for the smol slimes to be sold to reimburse the price of the headset~~*
 
-- [ ] purchase the screens and lenses
+- [ ] ~~purchase the screens and lenses~~
 
 - [ ] fix the 3d printer
 
 - [ ] model the controllers
 
-- [ ] build the first physical prototype of the current hmd model to physically modify it to figure out what to model
+- [ ] ~~build the first physical prototype of the current hmd model to physically modify it to figure out what to model~~
 
 - [ ] get and setup the "open" chromebooks that are to be given by Prof. M. 
 
-- [ ] set a concrete date to buy the imus and also start negotiating the shipping price on other items to be sent to Latvia for lower prices
+- [ ] *~~set a concrete date to buy the imus and also start negotiating the shipping price on other items to be sent to Latvia for lower prices~~*
 
 - [ ] test and recalibrate the printer to work with a 0.4 / 0.3 brass nozzle with asa for precision
 
@@ -27,8 +27,6 @@ to do list:
 - [ ] propperly maintain documentation
 
 - [ ] setup obsidian and git on the school chromebook for writing documentation in free time
-
-- [ ] start work on the modeling of the controllers
 
 - [ ] practice soldering and desoldering smd caps and resistors and small qfn parts
 
