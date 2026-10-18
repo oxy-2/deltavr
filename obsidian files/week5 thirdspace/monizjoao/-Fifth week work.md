@@ -62,6 +62,8 @@ https://lapse.hackclub.com/timelapse/Qbq9pgc5l-MN
 
 And to end off the week as per usual I am writing this exact entry into the journal to finish up the last hour and a half of work I need to do.
 
+*Lapse for journal:* https://lapse.hackclub.com/timelapse/Mkmu9c_v6Fx-
+
 ___
 All lapses:
 https://lapse.hackclub.com/timelapse/NL7N7xp_Ja0K
@@ -71,6 +73,7 @@ https://lapse.hackclub.com/timelapse/KULSyo9l2O5K
 https://lapse.hackclub.com/timelapse/o5SNywCzG6Bw
 https://lapse.hackclub.com/timelapse/vgDtNaUHjjDE
 https://lapse.hackclub.com/timelapse/Qbq9pgc5l-MN
+https://lapse.hackclub.com/timelapse/Mkmu9c_v6Fx-
 
 Final thoughts for the week:
 
