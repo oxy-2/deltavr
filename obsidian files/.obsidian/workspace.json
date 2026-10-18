@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "cb2b7ca5f27bc082",
+        "id": "234304efcfc31ab2",
         "type": "tabs",
         "children": [
           {
-            "id": "8d7d3b3d056b5f9b",
+            "id": "75385d1aa995dbb3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "week4 thirdspace/monizjoao/-Fourth Week Work.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "-Fourth Week Work"
+              "title": "New tab"
             }
           }
         ]
@@ -188,12 +184,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "8d7d3b3d056b5f9b",
+  "active": "c96710a9680c1732",
   "lastOpenFiles": [
+    "week5 thirdspace/monizjoao/journal but fat.txt",
+    "week5 thirdspace/rhime7274/journal but tall.txt",
+    "week5 thirdspace/rhime7274/New Text Document.txt",
+    "week5 thirdspace/merekelene/journal but latvian.txt",
+    "week5 thirdspace/merekelene/New Text Document.txt",
+    "week5 thirdspace/monizjoao/journal.txt",
+    "week5 thirdspace/monizjoao/New Text Document.txt",
+    "week5 thirdspace/rhime7274",
+    "week5 thirdspace/New folder",
+    "week5 thirdspace/merekelene",
+    "week5 thirdspace/monizjoao",
+    "week4 thirdspace/monizjoao/-Fourth Week Work.md",
     "week4 thirdspace/merekelene/Week 4 review.md",
     "week4 thirdspace/monizjoao/My scrapped camera holder design.png",
     "week4 thirdspace/monizjoao/Grand's design before upgrade.png",
-    "week4 thirdspace/monizjoao/-Fourth Week Work.md",
     "week4 thirdspace/monizjoao/Grand's design after the upgrade.png",
     "week4 thirdspace/monizjoao/Linear rods moved to the front after the change.png",
     "week4 thirdspace/monizjoao/Linear rods initially moved up.png",
@@ -206,24 +213,14 @@
     "week4 thirdspace/rhime7274/Untitled.md",
     "week4 thirdspace/merekelene/Untitled.md",
     "week4 thirdspace/Untitled.md",
-    "week4 thirdspace/rhime7274",
-    "week4 thirdspace/monizjoao",
-    "week4 thirdspace/merekelene",
-    "week4 thirdspace",
-    "New folder",
     "week3 thirdspace/rhime7274/- week summary of work.md",
     "week2 thirdspace/monizjoao/work i did for the second week.md",
     "week1 thirdspace/monizjoao/work i did for the first week.md",
     "week2 thirdspace/rhime7274/week 2 summary of work.md",
     "week1 thirdspace/rhime7274/week 1 summary of work done.md",
     "week2 thirdspace/merekelene/Untitled.md",
-    "week2 thirdspace/rhime7274",
-    "week2 thirdspace/monizjoao",
-    "week2 thirdspace/merekelene",
-    "week2 thirdspace",
     "Untitled.md",
     "week1 thirdspace/monizjoao/work i did for the first week 1.md",
-    "week1 thirdspace/merekelene/Week 1 review.md",
-    "week1 thirdspace/merekelene"
+    "week1 thirdspace/merekelene/Week 1 review.md"
   ]
 }
