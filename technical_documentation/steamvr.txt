@@ -1,0 +1,90 @@
+How to connect / use our custom headset with steam vr
+
+
+steam vr echnical specs
+
+        OS *: Windows 7 SP1, Windows 8.1 or later, Windows 10
+        Processor: Intel Core i5-4590/AMD FX 8350 equivalent or better
+        Memory: 4 GB RAM
+        Graphics: NVIDIA GeForce GTX 970, AMD Radeon R9 290 equivalent or better
+        Network: Broadband Internet connection
+        VR Support: SteamVR
+        Additional Notes: 1x USB 2.0 or newer, HDMI 1.4, DisplayPort 1.2 or newer
+
+    Recommended:
+        Graphics: NVIDIA GeForce GTX 1060, AMD Radeon RX 480 equivalent or better
+
+
+To use SteamVR with a custom or DIY VR headset you need to interface your hardware tracking and display outputs with Valve's OpenVR or OpenXR runtime environment using compatible drivers or middleware like OSVR or custom OpenVR/OpenXR driver modules
+
+
+Key Requirements for Custom Headsets
+
+• SteamVR Application: Install the free SteamVR app directly from the Steam Store.
+
+• Tracking System: Your custom headset (such as a DIY build using an IMU like an MPU6500 paired with a microcontroller like a Raspberry Pi Pico or external Lighthouse/camera systems) must report positional and rotational data.
+
+• Driver / Middleware Integration:
+	• Use OSVR (Open Source Virtual Reality) and the SteamVR-OSVR plugin to bridge non-standard or custom hardware with SteamVR applications.
+	• Alternatively, write or utilize a custom OpenVR/OpenXR driver DLL that registers your device pose, eye projections, and controller inputs directly into the SteamVR runtime.
+
+• Display & Video Output: Route your custom displays (e.g., via HDMI/DP or streamed video over USB/Wi-Fi) to appear as an extended desktop or direct-mode display device on your host PC.
+
+
+Steps to Interface with SteamVR in Unity
+
+1. Install SteamVR: Make sure the SteamVR app is installed and running on your PC.
+2. Import the Plugin: Download and import the SteamVR Unity Plugin from the Unity Asset Store into your project.
+3. Generate Action Bindings:
+	• Open the SteamVR Input window by going to Window > SteamVR Input in Unity.
+	• Click Save and Generate to initialize the default action manifests and binding files.
+4. Set Up the Player Rig:
+	• Remove the default main camera from your scene.
+	• Drag and drop the CameraRig prefab (from the SteamVR plugin) into your scene origin (0, 0, 0) to track head and controller movement.
+5. Write Input Code:
+	• Reference Valve.VR in your script.
+	• Bind actions (like grip, trigger, or thumbstick movement) via SteamVR's input manifest and assign them to your C# scripts.
+
+
+1. How the Architecture Works
+
+• Headset Firmware (Microcontroller): Reads data from your IMU (gyroscope and accelerometer), handles local button inputs, or reads tracking LEDs, and streams this payload via Serial/USB. Popular DIY projects like HadesVR or Persephone use simple microcontrollers (such as an Arduino Pro Micro) flashed with basic sensor-reading code.
+• PC Bridge / Tracking Service: A companion application on your PC (such as PSMoveServiceEX for optical/LED tracking or custom Python/C++ scripts) reads the serial data from your headset.
+• SteamVR Driver (OpenVR / OpenXR): A custom or modified C++ SteamVR driver plugin loaded by SteamVR translates poses, view matrices, and controller inputs into the OpenVR API.
+
+2. Step-by-Step Approach to Custom HMD Integration
+
+
+Step 1: Program the Headset Microcontroller
+
+1. Choose a microcontroller (e.g., Arduino Pro Micro, ESP32, or STM32).
+2. Wire up your IMU sensor (such as an MPU-9250 or BNO085) via I2C/SPI.
+3. Write firmware to read raw accelerometer and gyroscope values, apply a sensor fusion algorithm (like a Madgwick or Mahony filter) to get clean rotation/orientation (3-DoF), and packetize the data.
+4. Send the data packets over USB Serial at a high baud rate (e.g., 115200 or higher) to your PC.
+5. If doing optical or positional tracking (6-DoF), you may use IR/RGB LEDs on the headset tracked by a camera and processed on the PC rather than the HMD.
+
+Step 2: Build or Modify a SteamVR Driver
+
+SteamVR does not listen to raw microcontrollers by default; it requires an external driver loaded into its directory.
+1. Use existing open-source DIY driver frameworks as a base, such as:
+	• Simple-OpenVR-Driver-Tutorial available on GitHub to understand how C++ OpenVR drivers structure devices.
+	• HadesVR / SenseVR architecture which adapts open-source drivers and tracking services for custom DIY headsets.
+2. Compile your C++ driver DLL and place it inside SteamVR's driver folder (typically C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers) or register it via openvrpaths.vrpath.
+3. The driver code opens the COM/Serial port connected to your microcontroller, parses the incoming IMU orientation data, and feeds vr::DriverPose_t updates into SteamVR's compositor.
+
+Step 3: Handle Video Output Separately
+
+• Your microcontroller firmware does not handle video.
+• Video display is handled via a standard HDMI, DisplayPort, or USB-C (Alt-mode) connection from your PC's graphics card to a display driver board (e.g., an MIPI-to-HDMI bridge board inside the headset).
+• Configure your PC's display settings to treat the headset's internal panel as an extended desktop monitor or direct-mode display matching the proper resolution and refresh rate (e.g., 90Hz).
+
+Step 4: Calibrate and Test
+
+1. Flash your microcontroller, plug the USB and video cables into your PC, and open your PC bridge software to verify serial data streaming.
+2. Launch SteamVR; check the SteamVR status window to ensure your custom HMD device node is recognized and green.
+3. Calibrate your gyro drift, inter-pupillary distance (IPD), and lens distortion profiles inside your OpenVR driver configuration files.
+This video demonstrates how a DIY SteamVR headset (Persephone 2) uses custom firmware and a SteamVR-compatible setup to run games:
+
+resources :
+
+https://www.khronos.org/openxr/
