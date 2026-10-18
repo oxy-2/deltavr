@@ -19,7 +19,10 @@ Rods:
 
 Camera holders:
 	
-	The position of these holders are specific to the angle that the cameras need to be and are there to steady the cameras in place.
+	The camera holders were designed to hold the cameras in the exact place and orientation while being as light and durable as possible. The cameras are slightly pointed outwards and tilted downwards.
+	The primary pat of the assembly is the front witch huggs the camera itself and holds it in place. The idea is that the camera can slide in from the top and e crewed in with 3 screws in 3 of the 4 corners. We also reccomend that behind the camera you would place a thin piece of foam or fabric to reduce vibration and increase stability.
+	The second part of the assembly is the mounting legs which connect the part that holds the cameras themselves to the shell. They are made to keep the cameras stable by being connected in two possitions both to the case and holder. We reduced the weight by cutting out the centre of the triangular leg and leaving behind that what resembles a truss.
+	To attach to the case itself the part is printed sepparetly and after inserting and securing the cameras, it is glued to the case. In theory it should end up connected in a way that very closely maches the cad, as the curvature of the case will align with the assembly.
 
 
 
