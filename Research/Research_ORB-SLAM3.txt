@@ -37,6 +37,31 @@ Atlas module (10:18 PM 10/14/2026)
 	-Other maps are inactive maps
 	-Builds a database of keyframe information based on a BoW model to relocate, detect loops and merge maps
 
+Pose estimation by fusing IMU and camera data (10:49AM 15/10/2026)
+-IMUs measure angular velocity and linear acceleration but have a lot of drift
+-Just double IMU data integration unreliable for long-term pose estimation
+-IMUs are better for short-term pose estimation during fast motions (which was bad for cameras since fast paced movement makes motion blur which is bad for estimating poses) 
+-IMUs can maintain acceptable pose estimates when cameras are unreliable
+-Camera data has negligible drift so images can correct the IMU drift and keep the estimated poses accurate
+-Pure visual SLAM struggles with dynamic obstacles
+-IMU senses the platform motion directly which partially mitigates the impact of dynamic objects
+
+
+Main steps of pose estimation (10:56AM 15/10/2026):
+-Get the images and inertial measurements from the IMU (IMU sampling rate > camera sampling rate)
+-Extract feature points from the camera frames
+-Compute descriptors for the features and match them together 
+  .Optical flow tracking may also be used as an alternative (kind of how a mouse works)
+-Integrate the IMU measurements to calculate the relative position and velocity between two frames for those IMU measurements
+-IMU initialization (method used by ORB-SLAM3).
+
+Methods of tracking (11:04AM 15/10/2026):
+
+.Vision-only - Classic ORB-SLAM with keyframe rates of 4hz for 2 seconds to get a scaled map that typically includes around 10 keyframes and hundreds of map points and then refine with visual-only bundle adjustments.
+(Basically camera only)
+
+.Inertial-only - Estimate optimal IMU parameters using the data from the monocular visual SLAM initialization and the IMU measurements between keyframes. Parameters include scale factor, gravity direction, IMU sensor biases and unscaled velocities of keyframes. These measurements form a state vector used in an optimization problem. Once the optimization is complete everything (frame poses, velocities and 3D map points) are scaled by the estimated scale and rotated so the z axis aligns with the estimated gravity direction.
+
 Strengths, weaknesses, and improvement opportunities of the feature-based tracking module (11:13 PM 10/15/2026)
 
 	-Extracts feature points and matches descriptors
