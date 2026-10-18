@@ -1,0 +1,26 @@
+Introduction
+	
+	This text file is an explanation on why the team designed the headset the way we did it and the process we took to make such headset.
+
+Isn't this unnecessary since each member of the team has a journal? 
+	
+	Yes and no. This file is more of a summary of the (hopefully) final 3D model for the 4th week of the Thirdspace program. Besides, the headset had a big amount of changes made in it's designing process and the entries on the journals talk about them all, including ones that were scrapped (I assume so for the other two members of the team since I [João Moniz aka John Tarkov] did). This little text file (hopefully) brings a cleaner explanation on every part of the design and the choices made to make them what they are right now.
+
+Shell:
+
+	So the shell was made with the measurements of the average human face which we searched up to know how small we could make the headset. Then by the end we trimmed it down until the IPD system could freely move while making it as compact as possible. Also indented on the top center to fit the main PCB of the headset.
+
+
+Rods:
+
+	They're there to hold the displays and lenses. To keep them in place we made tubes with end caps to make sure they dont go anywhere once in place. They'll get grease rubbed on them to make the IPD system move smoothly. 
+	As you might've noticed the bottom rod is offset foward by about its size. This is so the user of the headset doesn't have to sniff it's grease (to make room for the nose).
+
+
+Camera holders:
+	
+	The position of these holders are specific to the angle that the cameras need to be and are there to steady the cameras in place.
+
+
+
+
