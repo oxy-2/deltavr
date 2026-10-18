@@ -1,0 +1,46 @@
+https://www.allpcb.com/allelectrohub/orb-slam3-architecture-and-workflow-analysis
+
+
+Research on ORB-Slam3
+
+Tracking module (9:13 PM 10/14/2026)
+
+	-Computes current frame pose in the active map in real time
+	-Decides whether to insert current frame as a keyframe
+		. A keyframe is basically an important frame pretty much
+	-Adds inertial residuals into the optimization to estimate rigid body velocities and IMU biases
+	-Tracking lost = Attempt to relocalizate
+		. if succeds = tracking recovered and the active map is switched if necessary
+		. if unsuccessful after a bit = current active map is stored as inactive map and a new map is reinitialized.
+
+
+Local mapping module (9:58 PM 10/14/2026)
+	
+	-Adds keyframes and map points to the current active map
+		.Map points are 3D landmarks in the active map
+	-Removes redundant frames (extra unneeded frames)
+	-Optimizes map using visual bundle ajustment or visual inertial bundle adjustment over the neighboring keyframes of the current frame.
+		.Bundle adjustments enchance accuracy and reliability of 3D scene reconstructions from multiple images and camera views
+	-Uses maximum MAP estimation to initialize and optimize IMU parameter in inertial mode
+
+Loop and map merging module (10:16 PM 10/14/2026)
+	
+	-Detects shared regions between the active map and whole Atlas (All of the active maps) whenever a new keyframe is added.
+	-If shared regions are part of the active map a loop correction is performed
+	-If it belongs to another map then both active maps and the other map are fused into one map and that fusion becomes the new active map
+	-Seperate thread runs global bundle adjustment after the loop correction to optimize the map but not affect the real-time performance
+
+Atlas module (10:18 PM 10/14/2026)
+
+	-Multi-submap system composed of a set of discrete maps
+	-Maintains one active map that is being used for tracking while the local mapping thread continues to optimize and update that map with new keyframes
+	-Other maps are inactive maps
+	-Builds a database of keyframe information based on a BoW model to relocate, detect loops and merge maps
+
+Strengths, weaknesses, and improvement opportunities of the feature-based tracking module (11:13 PM 10/15/2026)
+
+	-Extracts feature points and matches descriptors
+	-Drawbacks:
+		:time-consuming
+		:Motion blur leads to inaccuracy on pure visual
+		:
