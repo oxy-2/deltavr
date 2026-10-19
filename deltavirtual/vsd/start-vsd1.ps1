@@ -63,11 +63,15 @@ if (-not (Test-Path $VenvPy)) {
     }
 }
 
+$env:PATH = "$VenvDir\Scripts;$env:PATH"
+if (-not $env:HOME) { $env:HOME = $env:USERPROFILE }
+
 # vsd install
 if (-not (Test-Path $VenvVsd)) {
     Write-Host "installing vsd + deps (first run, needs network) ..." -ForegroundColor DarkGray
     & $VenvPy -m pip install --upgrade pip
     & $VenvPy -m pip install "$Root\win-stubs\uvloop-stub"
+    & $VenvPy -m pip install "$Root\win-stubs\npm-stub"
     & $VenvPy -m pip install -e $AppDir
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $VenvPy)) {
         Fail "pip install of visual-system-designer-app failed" "check you have network, then run: .\.venv\Scripts\python.exe -m pip install -e .\visual-system-designer-app"
@@ -82,6 +86,8 @@ if (-not (Test-Path $EnvYml)) {
     Write-Host "setting up..." -ForegroundColor DarkGray
     Write-Host "clones zephyr and pulls sdk" -ForegroundColor DarkGray
     Write-Host ""
+    $env:PATH = "$VenvDir\Scripts;$env:PATH"
+    if (-not $env:HOME) { $env:HOME = $env:USERPROFILE }
     & $VenvVsd init $Workspace
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $EnvYml)) {
         Fail "vsd init workspace failed" "the log above has the erro but its prolly cuz no network, no bash, no npm, no money, no motion, no bitches"

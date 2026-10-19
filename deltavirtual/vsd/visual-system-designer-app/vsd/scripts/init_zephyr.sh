@@ -30,10 +30,10 @@ fi
 
 cd $WORKSPACE
 if [ ! -d .west ] ; then
-  west init -l zephyr
+  python -m west init -l zephyr
 fi
 
 # Always update west, because zpehyr version might have changed.
-west update
-west zephyr-export
+python -m west update
+python -m west zephyr-export
 cd -
