@@ -1,0 +1,193 @@
+image: debian:bookworm
+
+stages:
+  - build
+  - deploy
+  - prepare-workspace
+  - validate
+  - aggregate-results
+  - show-changes
+
+.common_only: &common_only
+  only:
+    - main
+    - dev
+    - merge_requests
+
+build:
+  <<: *common_only
+  when: manual
+  stage: build
+  tags: ['ace-x86_64']
+  before_script:
+    - apt-get -y update
+    - apt-get -y install npm libarchive-tools git python3-venv python3-dev python3-pip
+  script:
+    - python3 -m venv .venv && source .venv/bin/activate && python3 --version
+    - git clone https://github.com/antmicro/visual-system-designer-resources
+
+    - pip install git+https://github.com/antmicro/kenning-pipeline-manager.git
+    - pip install git+https://github.com/antmicro/kenning-pipeline-manager-backend-communication.git
+
+    - pipeline_manager build server-app
+        --assets-directory visual-system-designer-resources/assets/
+        --communication-server-host localhost
+        --communication-server-port 9000
+        --output-directory website
+        --workspace-directory pm-workspace
+
+    - tar cf $CI_DOCS_ARCHIVE -C website .
+  artifacts:
+    paths:
+      - $CI_DOCS_ARCHIVE
+
+
+deploy:
+  <<: *common_only
+  when: manual
+  image: $CI_DOCS_DOCKER_IMAGE
+  variables:
+    GIT_STRATEGY: none
+  dependencies:
+    - build
+  stage: deploy
+  tags: ['docs']
+  script: echo 'Deploying docs'
+  artifacts:
+    paths:
+      - $CI_DOCS_ARCHIVE
+
+.install-requirements: &install-requirements |-
+    apt-get -y update &> /dev/null
+    apt-get -y install npm libarchive-tools curl git cmake ninja-build gperf ccache dfu-util device-tree-compiler wget python3-venv python3-dev python3-pip python3-setuptools python3-tk python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
+
+# Initialize python venv and install VSD app
+.init-venv: &init-venv |-
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -e .
+
+.init-workspace: &init-workspace |-
+    export VSD_WORKSPACE=$(pwd)/workspace
+    export ZEPHYR_SDK_INSTALL_DIR=$(vsd info | grep ZEPHYR_SDK | sed 's/ZEPHYR_SDK_INSTALL_DIR: //')
+
+    # Move SDK to proper directory
+    mv zephyr-sdk ${ZEPHYR_SDK_INSTALL_DIR}
+
+    # Ensure that Zephyr SDK is setup correctly
+    pushd ${ZEPHYR_SDK_INSTALL_DIR}
+    ./setup.sh -t all -h -c
+    popd
+
+    # This call to vsd init is needed to install Zephyr requirements
+    vsd init workspace
+    vsd info
+
+
+
+setup-workspace:
+  <<: *common_only
+  stage: prepare-workspace
+  tags: ['ace-x86_64']
+  before_script:
+    - *install-requirements
+  script:
+    - *init-venv
+    - echo "progress=dot:giga" > ${HOME}/.wgetrc
+    # Setup workspace
+    - vsd init workspace
+    # Prepare archive that will be saved to artifacts
+    - export VSD_WORKSPACE=workspace
+    - 'export ZEPHYR_SDK_INSTALL_DIR=$(vsd info | grep ZEPHYR_SDK | sed "s/ZEPHYR_SDK_INSTALL_DIR: //")'
+    # Copy Zephyr SDK to include it in artifacts
+    - mv ${ZEPHYR_SDK_INSTALL_DIR} zephyr-sdk
+  artifacts:
+    paths:
+      - workspace
+      - zephyr-sdk
+    when: always
+
+
+validate-setup:
+  <<: *common_only
+  stage: validate
+  tags: ['ace-x86_64']
+  dependencies: [setup-workspace]
+  before_script:
+    - *install-requirements
+  script:
+    - *init-venv
+    - *init-workspace
+    # Build app on demo graph
+    - vsd prepare-zephyr-app demo/stm32-led-thermometer.json demo/blinky-temperature
+    # We expect that the simulation will succeed and run forever. In that case, timeout
+    # command would kill the simulation after 20 seconds and return 124 indicating timeout.
+    - timeout --signal=SIGINT 20 vsd simulate demo_blinky_temp || test $? -eq 124
+
+    # Check the app generated from template in the same way
+    - vsd prepare-zephyr-app demo/stm32-led-thermometer.json blinky-from-template --from-template demo/templates/blinky-temperature --force
+    - timeout --signal=SIGINT 20 vsd simulate demo_blinky_temp || test $? -eq 124
+  artifacts:
+    paths:
+      - workspace/builds/demo_blinky_temp
+    when: always
+
+
+validate-targets:
+  <<: *common_only
+  stage: validate
+  tags: ['ace-x86_64']
+  dependencies: [setup-workspace]
+  parallel: 6
+  before_script:
+    - *install-requirements
+  script:
+    - *init-venv
+    - *init-workspace
+    - pip install -r tools/requirements.txt
+    - ./tools/validate.py all-socs --chunk-total ${CI_NODE_TOTAL} --chunk-id $((${CI_NODE_INDEX} - 1)) --seed ${CI_COMMIT_SHA} --output validate-${CI_NODE_INDEX}.json
+  artifacts:
+    paths:
+      - validate.log
+      - validate-*.json
+      - workspace/builds
+    when: always
+
+
+aggregate-results:
+  <<: *common_only
+  stage: aggregate-results
+  tags: ['ace-x86_64']
+  dependencies: [validate-targets]
+  before_script:
+    - apt-get -y update &> /dev/null
+    - apt-get -y install git python3 python3-venv python3-pip &> /dev/null
+  script:
+    - *init-venv
+    - pip install -r tools/requirements.txt
+    - ./tools/validate.py print-results validate-*.json --output results.json
+  artifacts:
+    paths:
+      - results.json
+      - workspace/builds
+
+
+show-changes:
+  <<: *common_only
+  stage: show-changes
+  tags: ['ace-x86_64']
+  dependencies: [aggregate-results]
+  before_script:
+    - apt-get -y update &> /dev/null
+    - apt-get -y install git curl jq python3 python3-venv python3-pip &> /dev/null
+  script:
+    - *init-venv
+    - pip install -r tools/requirements.txt
+    - git clone https://github.com/antmicro/visual-system-designer-resources vsd-resources
+    - ./tools/validate.py show-changes --fail-on-regression
+        vsd-resources/visual-system-designer-app/boards-support.json results.json
+  artifacts:
+    paths:
+      - results.json
+    when: always
+  allow_failure: true

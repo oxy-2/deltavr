@@ -1,0 +1,11 @@
+# local bootstrap junk. friends get these recreated by start-vsd.
+.venv/
+workspace/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# pipeline manager / node build residue
+node_modules/
+.pipeline_manager/
