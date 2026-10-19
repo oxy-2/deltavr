@@ -1,4 +1,4 @@
-﻿# run start-vsd1.bat, also this is obvi just for windows, when i move to linux ill make a version for it
+# run start-vsd1.bat, also this is obvi just for windows, when i move to linux ill make a version for it
 
 $ErrorActionPreference = "Continue"
 $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -67,6 +67,7 @@ if (-not (Test-Path $VenvPy)) {
 if (-not (Test-Path $VenvVsd)) {
     Write-Host "installing vsd + deps (first run, needs network) ..." -ForegroundColor DarkGray
     & $VenvPy -m pip install --upgrade pip
+    & $VenvPy -m pip install "$Root\win-stubs\uvloop-stub"
     & $VenvPy -m pip install -e $AppDir
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $VenvPy)) {
         Fail "pip install of visual-system-designer-app failed" "check you have network, then run: .\.venv\Scripts\python.exe -m pip install -e .\visual-system-designer-app"
