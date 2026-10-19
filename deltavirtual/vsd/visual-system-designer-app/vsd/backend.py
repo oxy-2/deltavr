@@ -517,15 +517,19 @@ def start_vsd_backend(host, port, workspace, app_path, app_type, spec_mods):
     Initializes the client and runs its asyncio event loop until it is interrupted.
     Doesn't return, if signal is caught whole process exits.
     """
-    spec_mods = (json.load(open(p)) for p in chain([files('vsd.spec_mods').joinpath('interactive.json')], spec_mods))
+    spec_mods = (json.load(open(p)) for p in chain([files('vsd.spec_mods').joinpath('interactive.json')], spec_mods or []))
     client = VSDClient(host, port, workspace, app_path, app_type, spec_mods)
 
     loop = asyncio.get_event_loop()
 
-    loop.add_signal_handler(
-        signal.SIGINT,
-        functools.partial(asyncio.create_task, shutdown(loop))
-    )
+    try:
+        loop.add_signal_handler(
+            signal.SIGINT,
+            functools.partial(asyncio.create_task, shutdown(loop))
+        )
+    except (NotImplementedError, RuntimeError):
+        # windows event loops cannot register signal handlers
+        pass
     loop.run_until_complete(client.start_listening())
 
     # After loop has ended, exit because there is no work to do.

@@ -73,9 +73,15 @@ if (-not (Test-Path $VenvVsd)) {
     & $VenvPy -m pip install "$Root\win-stubs\uvloop-stub"
     & $VenvPy -m pip install "$Root\win-stubs\npm-stub"
     & $VenvPy -m pip install -e $AppDir
+    Copy-Item "$Root\win-stubs\sitecustomize.py" "$VenvDir\Lib\site-packages\sitecustomize.py" -Force
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $VenvPy)) {
         Fail "pip install of visual-system-designer-app failed" "check you have network, then run: .\.venv\Scripts\python.exe -m pip install -e .\visual-system-designer-app"
     }
+}
+
+# python 3.12+ needs the asyncio shim even if vsd was installed before
+if (-not (Test-Path "$VenvDir\Lib\site-packages\sitecustomize.py")) {
+    Copy-Item "$Root\win-stubs\sitecustomize.py" "$VenvDir\Lib\site-packages\sitecustomize.py" -Force
 }
 
 # workspace
@@ -88,8 +94,38 @@ if (-not (Test-Path $EnvYml)) {
     Write-Host ""
     $env:PATH = "$VenvDir\Scripts;$env:PATH"
     if (-not $env:HOME) { $env:HOME = $env:USERPROFILE }
-    & $VenvVsd init $Workspace
-    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $EnvYml)) {
+
+    # bootstrap workspace directly. vsd init is linux-oriented and keeps
+    # tripping over windows (bash/tar/wget/setup.cmd), so do the three
+    # things it actually has to land: resources, frontend, vsd-env.yml.
+    $ResDir = Join-Path $Workspace "visual-system-designer-resources"
+    if (-not (Test-Path $ResDir)) {
+        Write-Host "cloning visual-system-designer-resources ..." -ForegroundColor DarkGray
+        & git clone --depth 1 https://github.com/antmicro/visual-system-designer-resources.git $ResDir
+    }
+
+    $FrontendDir = Join-Path $Workspace ".pipeline_manager\frontend"
+    if (-not (Test-Path (Join-Path $FrontendDir "index.html"))) {
+        Write-Host "building frontend (first run, takes a minute) ..." -ForegroundColor DarkGray
+        & $VenvVsd init $Workspace
+    }
+
+    if (-not (Test-Path $EnvYml)) {
+        $renodeExe = "C:\Program Files\Renode\renode.exe"
+        $rn = Get-Command renode -ErrorAction SilentlyContinue
+        if ($rn) { $renodeExe = $rn.Source }
+        $sdkDir = Join-Path $env:USERPROFILE "zephyr-sdk-0.16.3"
+        $yml = @"
+PYRENODE_BIN: '$renodeExe'
+PYRENODE_RUNTIME: coreclr
+ZEPHYR_SDK_INSTALL_DIR: '$sdkDir'
+ZEPHYR_BASE: '$Workspace\zephyr'
+"@
+        New-Item -ItemType Directory -Path $Workspace -Force | Out-Null
+        Set-Content -Path $EnvYml -Value $yml -Encoding UTF8
+    }
+
+    if (-not (Test-Path $EnvYml)) {
         Fail "vsd init workspace failed" "the log above has the erro but its prolly cuz no network, no bash, no npm, no money, no motion, no bitches"
     }
 }
@@ -121,4 +157,5 @@ Write-Host "starting vsd, go to http://localhost:9000" -ForegroundColor Green
 Write-Host "ctrl+c to end" -ForegroundColor DarkGray
 Write-Host ""
 
-& $VenvVsd run
+$DemoApp = Join-Path $AppDir "demo\blinky-temperature"
+& $VenvVsd run --app $DemoApp

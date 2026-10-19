@@ -4,9 +4,11 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Windows note: upstream only shipped a linux script. this now picks the
-# right sdk package for the host so vsd init can run under git bash.
-
+# Windows note: upstream only shipped a linux script.
+# - the windows sdk is a .7z, not .zip/.tar.xz
+# - git-bash tar treats "C:\..." as a remote host
+# - setup.cmd needs wget + 7z which windows boxes often lack
+# so the windows path downloads and unpacks in python, then registers cmake.
 
 set -e
 
@@ -23,14 +25,66 @@ BASE_URL="https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${ZEPH
 
 case "$(uname -s)" in
   MINGW*|MSYS*|CYGWIN*)
-    PKG="zephyr-sdk-${ZEPHYR_SDK_VERSION}_windows-x86_64_minimal.zip"
-    echo "downloading ${PKG}"
-    curl -kLs "${BASE_URL}/${PKG}" -o "${ZEPHYR_SDK_INSTALL_DIR}/${PKG}"
-    tar xf "${ZEPHYR_SDK_INSTALL_DIR}/${PKG}" -C "${ZEPHYR_SDK_INSTALL_DIR}" --strip-components=1
-    rm -f "${ZEPHYR_SDK_INSTALL_DIR}/${PKG}"
-    if [ -f "${ZEPHYR_SDK_INSTALL_DIR}/setup.cmd" ]; then
-      (cd "${ZEPHYR_SDK_INSTALL_DIR}" && cmd //c setup.cmd -t all -h -c)
-    fi
+    echo "installing zephyr sdk ${ZEPHYR_SDK_VERSION} into ${ZEPHYR_SDK_INSTALL_DIR}"
+    python -c "
+import os, pathlib, shutil, subprocess, sys, urllib.request
+
+version, dest_s, base = sys.argv[1], sys.argv[2], sys.argv[3]
+dest = pathlib.Path(dest_s)
+dest.mkdir(parents=True, exist_ok=True)
+
+def fetch(name):
+    url = f'{base}/{name}'
+    out = dest / name
+    print('downloading', name, flush=True)
+    req = urllib.request.Request(url, headers={'User-Agent': 'vsd-bootstrap'})
+    with urllib.request.urlopen(req) as r, open(out, 'wb') as f:
+        shutil.copyfileobj(r, f)
+    print('saved', out, 'bytes', out.stat().st_size, flush=True)
+    return out
+
+def unpack_sevenz(archive):
+    # windows tar (bsdtar) understands 7z and normal windows paths
+    tar = r'C:\Windows\System32\tar.exe'
+    print('extracting', archive.name, flush=True)
+    subprocess.check_call([tar, 'xf', str(archive)], cwd=str(dest))
+    archive.unlink()
+
+# 1. sdk skeleton
+skel = fetch(f'zephyr-sdk-{version}_windows-x86_64_minimal.7z')
+unpack_sevenz(skel)
+# flatten the single top-level folder
+top = dest / f'zephyr-sdk-{version}'
+if top.is_dir():
+    for item in top.iterdir():
+        target = dest / item.name
+        if target.exists():
+            if target.is_dir():
+                shutil.rmtree(target)
+            else:
+                target.unlink()
+        shutil.move(str(item), str(target))
+    top.rmdir()
+
+# 2. toolchains. arm covers the stm32 boards in deltavirtual.
+#    add more names here if you need another arch.
+toolchains = ['arm-zephyr-eabi']
+for t in toolchains:
+    if (dest / t).is_dir():
+        print('toolchain already present:', t, flush=True)
+        continue
+    name = f'toolchain_windows-x86_64_{t}.7z'
+    archive = fetch(name)
+    unpack_sevenz(archive)
+
+# 3. register cmake package so zephyr can find the sdk
+cmake = shutil.which('cmake')
+if cmake:
+    print('registering cmake package', flush=True)
+    subprocess.call([cmake, '-P', str(dest / 'cmake' / 'zephyr_sdk_export.cmake')], cwd=str(dest))
+
+print('sdk ready at', dest, flush=True)
+" "${ZEPHYR_SDK_VERSION}" "${ZEPHYR_SDK_INSTALL_DIR}" "${BASE_URL}"
     ;;
   *)
     curl -kLs "${BASE_URL}/zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-x86_64_minimal.tar.xz" | tar xJ --strip 1 -C "${ZEPHYR_SDK_INSTALL_DIR}"
