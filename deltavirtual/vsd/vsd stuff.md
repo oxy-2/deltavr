@@ -37,6 +37,7 @@ there's a test graph in graphs/stm32-led-thermometer.json you can load it to see
 - "bash not found" reinstall git for windows, make sure git bash is included
 - "pip install failed" need network on first run. it pulls deps from github
 - "vsd init failed" the log above the error is the real one. usually network, bash, or npm
+- "Directory ... workspace\.pipeline_manager\frontend does not exist" the web ui was never built. workspace/ is gitignored so a fresh clone never has it. the launcher checks this every run now and rebuilds if its missing. if youre on an old copy: delete workspace\vsd-env.yml then run start-vsd1.bat again so it rebuilds
 - renode missing ../UserManual/install.md
 
 the launcher patches vsd-env.yml after init so it uses your windows renode install, vsd init itself  tho downloads a linux renode portable which is useless here but its like, jus ignore it bruh, if you uninstall sum you might fuck everything up.

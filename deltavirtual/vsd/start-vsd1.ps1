@@ -74,7 +74,7 @@ if (-not (Test-Path $VenvVsd)) {
     & $VenvPy -m pip install "$Root\win-stubs\npm-stub"
     & $VenvPy -m pip install -e $AppDir
     Copy-Item "$Root\win-stubs\sitecustomize.py" "$VenvDir\Lib\site-packages\sitecustomize.py" -Force
-    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $VenvPy)) {
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $VenvVsd)) {
         Fail "pip install of visual-system-designer-app failed" "check you have network, then run: .\.venv\Scripts\python.exe -m pip install -e .\visual-system-designer-app"
     }
 }
@@ -84,70 +84,102 @@ if (-not (Test-Path "$VenvDir\Lib\site-packages\sitecustomize.py")) {
     Copy-Item "$Root\win-stubs\sitecustomize.py" "$VenvDir\Lib\site-packages\sitecustomize.py" -Force
 }
 
+# npm shim must exist even if vsd was installed on a previous run. pipeline_manager
+# shells out to `npm` and windows only has npm.cmd, so without .venv\Scripts\npm.exe
+# the frontend build dies with WinError 2.
+if (-not (Test-Path "$VenvDir\Scripts\npm.exe")) {
+    Write-Host "installing npm shim ..." -ForegroundColor DarkGray
+    & $VenvPy -m pip install "$Root\win-stubs\npm-stub"
+}
+
 # workspace
 $env:VSD_WORKSPACE = $Workspace
 $EnvYml = Join-Path $Workspace "vsd-env.yml"
+$ResDir = Join-Path $Workspace "visual-system-designer-resources"
+$FrontendDir = Join-Path $Workspace ".pipeline_manager\frontend"
+$IndexHtml = Join-Path $FrontendDir "index.html"
+$PmWorkspace = Join-Path $Workspace ".pipeline_manager\workspace"
 
-if (-not (Test-Path $EnvYml)) {
-    Write-Host "setting up..." -ForegroundColor DarkGray
-    Write-Host "clones zephyr and pulls sdk" -ForegroundColor DarkGray
-    Write-Host ""
-    $env:PATH = "$VenvDir\Scripts;$env:PATH"
-    if (-not $env:HOME) { $env:HOME = $env:USERPROFILE }
-
-    # bootstrap workspace directly. vsd init is linux-oriented and keeps
-    # tripping over windows (bash/tar/wget/setup.cmd), so do the three
-    # things it actually has to land: resources, frontend, vsd-env.yml.
-    $ResDir = Join-Path $Workspace "visual-system-designer-resources"
+# resources + the web ui. NOT gated on vsd-env.yml -- workspace/ is gitignored so a
+# fresh clone never has the built frontend, and an earlier run can leave vsd-env.yml
+# behind even when the build failed. always check index.html.
+if (-not (Test-Path $ResDir)) {
+    Write-Host "cloning visual-system-designer-resources ..." -ForegroundColor DarkGray
+    & git clone --depth 1 https://github.com/antmicro/visual-system-designer-resources.git $ResDir
     if (-not (Test-Path $ResDir)) {
-        Write-Host "cloning visual-system-designer-resources ..." -ForegroundColor DarkGray
-        & git clone --depth 1 https://github.com/antmicro/visual-system-designer-resources.git $ResDir
+        Fail "cloning visual-system-designer-resources failed" "need network + git, then re-run this"
+    }
+}
+
+if (-not (Test-Path $IndexHtml)) {
+    Write-Host "building frontend (first run, takes a minute) ..." -ForegroundColor DarkGray
+
+    # webpack hates the ESM in resources/broken_image.js unless vue.config.js
+    # says it's javascript/esm. overwrite BOTH copies: the site-packages template
+    # and the workspace copy (build_prepare syncs template -> workspace).
+    $VueCfg = Join-Path $Root "win-stubs\pm-vue.config.js"
+    $TplVue = Join-Path $VenvDir "Lib\site-packages\pipeline_manager\frontend\vue.config.js"
+    $WsVue = Join-Path $PmWorkspace "frontend\vue.config.js"
+    if (Test-Path $VueCfg) {
+        if (Test-Path (Split-Path $TplVue -Parent)) {
+            Copy-Item $VueCfg $TplVue -Force
+        }
+        if (Test-Path (Split-Path $WsVue -Parent)) {
+            Copy-Item $VueCfg $WsVue -Force
+        }
     }
 
-    $FrontendDir = Join-Path $Workspace ".pipeline_manager\frontend"
-    if (-not (Test-Path (Join-Path $FrontendDir "index.html"))) {
-        Write-Host "building frontend (first run, takes a minute) ..." -ForegroundColor DarkGray
-        & $VenvVsd init $Workspace
-    }
+    $env:PATH = "$VenvDir\Scripts;$env:PATH"
+    & $VenvPy -m pipeline_manager build server-app `
+        --editor-title "Visual System Designer" `
+        --workspace-directory $PmWorkspace `
+        --output-directory $FrontendDir `
+        --assets-directory (Join-Path $ResDir "assets") `
+        --favicon-path (Join-Path $ResDir "assets\visual-system-designer.svg")
 
-    if (-not (Test-Path $EnvYml)) {
-        $renodeExe = "C:\Program Files\Renode\renode.exe"
-        $rn = Get-Command renode -ErrorAction SilentlyContinue
-        if ($rn) { $renodeExe = $rn.Source }
-        $sdkDir = Join-Path $env:USERPROFILE "zephyr-sdk-0.16.3"
-        $yml = @"
+    if (-not (Test-Path $IndexHtml)) {
+        Fail "frontend build failed, no index.html in workspace\.pipeline_manager\frontend" "the log above is the real error. usually npm, network, or node being weird. after fixing, delete workspace\vsd-env.yml if it exists and run this again"
+    }
+}
+
+# vsd-env.yml last. never write this while the frontend is missing or the next run
+# will skip setup and crash on the missing directory.
+if (-not (Test-Path $EnvYml)) {
+    Write-Host "writing vsd-env.yml ..." -ForegroundColor DarkGray
+    $renodeExe = "C:\Program Files\Renode\renode.exe"
+    $rn = Get-Command renode -ErrorAction SilentlyContinue
+    if ($rn) { $renodeExe = $rn.Source }
+    $sdkDir = Join-Path $env:USERPROFILE "zephyr-sdk-0.16.3"
+    $yml = @"
 PYRENODE_BIN: '$renodeExe'
 PYRENODE_RUNTIME: coreclr
 ZEPHYR_SDK_INSTALL_DIR: '$sdkDir'
 ZEPHYR_BASE: '$Workspace\zephyr'
 "@
-        New-Item -ItemType Directory -Path $Workspace -Force | Out-Null
-        Set-Content -Path $EnvYml -Value $yml -Encoding UTF8
-    }
+    New-Item -ItemType Directory -Path $Workspace -Force | Out-Null
+    Set-Content -Path $EnvYml -Value $yml -Encoding UTF8
+}
 
-    if (-not (Test-Path $EnvYml)) {
-        Fail "vsd init workspace failed" "the log above has the erro but its prolly cuz no network, no bash, no npm, no money, no motion, no bitches"
-    }
+if (-not (Test-Path $EnvYml)) {
+    Fail "couldn't write workspace\vsd-env.yml" "check the workspace folder isnt read-only"
 }
 
 # vsd init gets linux renode protable, on win point at renode installed from usermanual
-if ($EnvYml -and (Test-Path $EnvYml)) {
-    $winRenode = Get-Command renode -ErrorAction SilentlyContinue
-    if ($winRenode) {
-        $renodeExe = $winRenode.Source
-        $lines = Get-Content $EnvYml
-        $patched = $false
-        $newLines = foreach ($line in $lines) {
-            if ($line -match '^\s*PYRENODE_BIN:') {
-                $patched = $true
-                "PYRENODE_BIN: '$renodeExe'"
-            } else {
-                $line
-            }
+$winRenode = Get-Command renode -ErrorAction SilentlyContinue
+if ($winRenode) {
+    $renodeExe = $winRenode.Source
+    $lines = Get-Content $EnvYml
+    $patched = $false
+    $newLines = foreach ($line in $lines) {
+        if ($line -match '^\s*PYRENODE_BIN:') {
+            $patched = $true
+            "PYRENODE_BIN: '$renodeExe'"
+        } else {
+            $line
         }
-        if ($patched) {
-            Set-Content -Path $EnvYml -Value $newLines
-        }
+    }
+    if ($patched) {
+        Set-Content -Path $EnvYml -Value $newLines
     }
 }
 

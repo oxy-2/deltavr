@@ -4,7 +4,6 @@
 from __future__ import annotations
 import asyncio
 import atexit
-import functools
 import json
 import logging
 import os
@@ -522,11 +521,11 @@ def start_vsd_backend(host, port, workspace, app_path, app_type, spec_mods):
 
     loop = asyncio.get_event_loop()
 
+    def _sigint():
+        asyncio.create_task(shutdown(loop))
+
     try:
-        loop.add_signal_handler(
-            signal.SIGINT,
-            functools.partial(asyncio.create_task, shutdown(loop))
-        )
+        loop.add_signal_handler(signal.SIGINT, _sigint)
     except (NotImplementedError, RuntimeError):
         # windows event loops cannot register signal handlers
         pass
