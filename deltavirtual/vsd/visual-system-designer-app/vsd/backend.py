@@ -168,7 +168,18 @@ class VSDClient:
         self.prop_change_callback = {}
 
     async def start_listening(self):
-        await self._client.initialize_client(RPCMethods(self))
+        # PM is not always accepting yet (it is a separate process). keep trying.
+        last_err = None
+        for attempt in range(40):
+            try:
+                await self._client.initialize_client(RPCMethods(self))
+                last_err = None
+                break
+            except (ConnectionRefusedError, OSError, TimeoutError) as e:
+                last_err = e
+                await asyncio.sleep(0.25)
+        if last_err is not None:
+            raise last_err
         logging.info("Start listening for messages from pipeline manager")
         logging.getLogger().addHandler(VSDLogHandler(self))
         await self._client.start_json_rpc_client()
@@ -535,6 +546,31 @@ def start_vsd_backend(host, port, workspace, app_path, app_type, spec_mods):
     sys.exit(0)
 
 
+def _run_pipeline_manager(argv):
+    """
+    Runs pipeline manager in its own process.
+
+    Python 3.12.1+ changed `asyncio.Server.wait_closed()` to wait until every
+    client has disconnected. pipeline-manager's `wait_for_client` closes the
+    listening socket and then awaits `wait_closed()` while the VSD client is
+    still attached, so it never returns. The connection lock is never released
+    and the message reader never starts, which leaves the web UI disconnected.
+    Restore the old behaviour (return immediately) for the TCP server.
+    """
+    async def _wait_closed_immediately():
+        return None
+
+    original_initialize_server = CommunicationBackend.initialize_server
+
+    async def _initialize_server(self):
+        result = await original_initialize_server(self)
+        self.server.wait_closed = _wait_closed_immediately
+        return result
+
+    CommunicationBackend.initialize_server = _initialize_server
+    pm_main(argv)
+
+
 @env.setup_env
 def start_vsd_app(app: Path = None,
                   app_template: str = None,
@@ -576,7 +612,7 @@ def start_vsd_app(app: Path = None,
         "--tcp-server-port", str(vsd_backend_port),
         "--verbosity", "INFO",
     )
-    pm_proc = Process(target=pm_main, args=[pm_args])
+    pm_proc = Process(target=_run_pipeline_manager, args=[pm_args])
     pm_proc.start()
 
     def wait_for_pm():
