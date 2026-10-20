@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "npm-shim"
+version = "0.0.1"
+description = "Windows npm.exe shim so python subprocess can find npm"
+requires-python = ">=3.9"
+
+[project.scripts]
+npm = "npm_shim:main"
+
+[tool.setuptools]
+packages = ["npm_shim"]

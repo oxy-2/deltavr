@@ -1,0 +1,46 @@
+# Copyright (c) 2022-2024 Antmicro <www.antmicro.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visual-system-designer-app"
+version = "0.0.1"
+authors = [{name = "Antmicro Ltd.", email = "contact@antmicro.com"}]
+description = "Visual System Designer application"
+dependencies = [
+    "pyrenode3[all]   @ git+https://github.com/antmicro/pyrenode3@e74fed065cf3a49beeaa94fd5bf2d72b8b7e1988",
+    "pipeline-manager @ git+https://github.com/antmicro/kenning-pipeline-manager@0b8fffc24c7721d09da728c6c9bcd37a45092d26",
+    "pipeline-manager-backend-communication @ git+https://github.com/antmicro/kenning-pipeline-manager-backend-communication@eb690cfb7766bfbd85a4eff2a1e809573b8b72d0",
+
+    # XXX: dts2repl version should be synced with the Renode version (which is
+    #      specified in vsd/init.py file). Eventually, it will be specified by
+    #      the Renode, but currently we have to do it manually. When updating
+    #      he version here, please check if Renode shouldn't be updated as well.
+    "dts2repl         @ git+https://github.com/antmicro/dts2repl@83e2d743202684eb1f89a1b93e859c69cd736455",
+
+    "pyyaml",
+    "typer",
+    "west",
+    "Jinja2",
+]
+
+requires-python = ">=3.9"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+[project.scripts]
+vsd = "vsd.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+namespaces = true
+include = ["vsd"]

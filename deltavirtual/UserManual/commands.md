@@ -1,0 +1,4 @@
+some useful commands that are good to know
+
+1 - "quit" exit renode
+2 - "mach" switch between and edit machines

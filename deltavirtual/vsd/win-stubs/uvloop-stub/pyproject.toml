@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uvloop"
+version = "0.23.0"
+description = "Windows stub for uvloop (real uvloop is unix-only)"
+requires-python = ">=3.9"
+
+[tool.setuptools]
+packages = ["uvloop"]

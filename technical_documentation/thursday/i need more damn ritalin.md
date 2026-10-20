@@ -26,9 +26,7 @@ to do list:
 
 - [ ] make sure the enclosure works
 
-- [ ] get money for next week lunches
-
-- [ ] propperly maintain documentation
+- [x] propperly maintain documentation
 
 - [ ] setup obsidian and git on the school chromebook for writing documentation in free time
 

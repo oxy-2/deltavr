@@ -1,0 +1,40 @@
+name: Validate setup
+on: push
+
+jobs:
+  validate-setup:
+    name: Validate setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get -qqy update
+          sudo apt-get -qqy autoremove
+          sudo apt-get -qqy install npm libarchive-tools curl git cmake ninja-build gperf ccache dfu-util device-tree-compiler wget xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
+
+      - name: Prepare workspace
+        run: |
+          echo "progress=dot:giga" > ${HOME}/.wgetrc
+          pip install -e .
+          vsd init workspace
+          echo "VSD_WORKSPACE=$(pwd)/workspace" >> $GITHUB_ENV
+
+      - name: Build and run demo
+        run: |
+          vsd prepare-zephyr-app demo/stm32-led-thermometer.json demo/blinky-temperature
+          timeout --signal=SIGINT 20 vsd simulate demo_blinky_temp || test $? -eq 124
+
+      - name: Build and run demo from template
+        run: |
+          vsd prepare-zephyr-app demo/stm32-led-thermometer.json blinky-from-template --from-template demo/templates/blinky-temperature --force
+          timeout --signal=SIGINT 20 vsd simulate demo_blinky_temp || test $? -eq 124
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: workspace/builds/demo_blinky_temp
