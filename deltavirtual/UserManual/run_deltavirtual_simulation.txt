@@ -1,4 +1,5 @@
 run
+
 1 - open command promt
 
 2 - change dirrectory to the delta virtual folder

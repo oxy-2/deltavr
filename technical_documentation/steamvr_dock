@@ -1,0 +1,24 @@
+how to use steam vr with our headset
+
+    Steam vr technical specs -
+
+OS *: Windows 7 SP1, Windows 8.1 or later, Windows 10
+processor: intel Core 15-4590/AAMD FX 8350 equivelant or better
+Memory: 4 GB ram
+graphics: Nvidia GeForce Gtx 970, AND Radeon R9 290 equivelant or better
+Network: Broadband Internet Connection
+VR Support: SteamVR
+Additional notes: 1x USB 2.0 or newer, HDMI 1.4, Display port 1.2 or newer
+
+Recommended:
+Graphics: NVIDIA Geforce GTX 1060, AND Radeon RX 480 equivelant or better
+
+
+    key requirements for custom headsets -
+
+SteamVR applicaion
+Tracking system
+Drivers / Middleware integration
+    OSVR
+    Custom OpeanVR / OpenXR
+Display / Video Output
