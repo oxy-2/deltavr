@@ -17,10 +17,10 @@ namespace Antmicro.Renode.Peripherals.Sensors
         }
 
         // ---- values you set from the monitor (physical units) ----
-        public double AccelX { get; set; }       // g
+        public double AccelX { get; set; }                 // g
         public double AccelY { get; set; }
         public double AccelZ { get; set; } = 1.0;
-        public double GyroX { get; set; }        // dps
+        public double GyroX { get; set; }                 // dps
         public double GyroY { get; set; }
         public double GyroZ { get; set; }
         public double Temperature { get; set; } = 25.0;   // deg C
