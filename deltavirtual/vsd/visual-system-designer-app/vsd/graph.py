@@ -38,11 +38,12 @@ class Node():
 
     @property
     def rdp_name(self):
-        if 'urls' in self._spec and 'rdp' in self._spec['urls']:
-            rdp_link = self._spec['urls']['rdp']
-        else:
-            return None
-        return rdp_link.split("/")[-1]
+        urls = self._spec.get('urls') or {}
+        if 'rdp' in urls:
+            return urls['rdp'].split('/')[-1]
+        if 'designer_soc' in urls:
+            return urls['designer_soc']
+        return None
 
     @property
     def name(self):
