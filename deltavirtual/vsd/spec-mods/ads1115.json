@@ -1,0 +1,41 @@
+{
+    "add_nodes": [
+        {
+            "abstract": false,
+            "category": "Sensor/ADC",
+            "description": "Texas Instruments ADS1115 16-bit I2C ADC with 4 single-ended or 2 differential inputs\n",
+            "interfaces": [
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "i2c",
+                    "side": "left",
+                    "type": [
+                        "i2c"
+                    ]
+                },
+                {
+                    "direction": "inout",
+                    "maxConnectionsCount": -1,
+                    "name": "adc",
+                    "side": "right",
+                    "type": [
+                        "adc"
+                    ]
+                }
+            ],
+            "name": "ADS1115",
+            "properties": [
+                {
+                    "default": "0x48",
+                    "name": "address (i2c)",
+                    "type": "text"
+                }
+            ],
+            "urls": {
+                "designer_hwblock": "ti,ads1115",
+                "zephyr": "drivers/adc/adc_ads1x1x.c"
+            }
+        }
+    ]
+}

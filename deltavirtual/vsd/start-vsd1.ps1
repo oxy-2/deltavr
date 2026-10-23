@@ -66,6 +66,11 @@ if (-not (Test-Path $VenvPy)) {
 $env:PATH = "$VenvDir\Scripts;$env:PATH"
 if (-not $env:HOME) { $env:HOME = $env:USERPROFILE }
 
+# dtc (device tree compiler) comes from msys2. the zephyr build needs it on PATH.
+# appended, not prepended, so msys2's cmake doesnt shadow the normal one
+$Dtc = "C:\msys64\ucrt64\bin"
+if (Test-Path (Join-Path $Dtc "dtc.exe")) { $env:PATH = "$env:PATH;$Dtc" }
+
 # vsd install
 if (-not (Test-Path $VenvVsd)) {
     Write-Host "installing vsd + deps (first run, needs network) ..." -ForegroundColor DarkGray
@@ -142,6 +147,18 @@ if (-not (Test-Path $IndexHtml)) {
     }
 }
 
+# the ui asks for zephyr.svg etc, but resources ships them as icons_zephyr.svg.
+# copy them to the names the ui wants on every launch, the frontend build can wipe them
+Get-ChildItem (Join-Path $ResDir "assets") -Filter "icons_*.svg" | ForEach-Object {
+    Copy-Item $_.FullName (Join-Path $FrontendDir ($_.Name.Substring(6).ToLower())) -Force
+}
+# the spec asks for renode-model.svg. icons_model.svg is the closest one shipped (guess)
+$ModelIcon = Join-Path $ResDir "assets\icons_model.svg"
+if (Test-Path $ModelIcon) { Copy-Item $ModelIcon (Join-Path $FrontendDir "renode-model.svg") -Force }
+# graph.svg is icons_go_to_graph.svg, the prefix strip above doesnt catch that one
+$GraphIcon = Join-Path $ResDir "assets\icons_go_to_graph.svg"
+if (Test-Path $GraphIcon) { Copy-Item $GraphIcon (Join-Path $FrontendDir "graph.svg") -Force }
+
 # vsd-env.yml last. never write this while the frontend is missing or the next run
 # will skip setup and crash on the missing directory.
 if (-not (Test-Path $EnvYml)) {
@@ -190,4 +207,5 @@ Write-Host "ctrl+c to end" -ForegroundColor DarkGray
 Write-Host ""
 
 $DemoApp = Join-Path $AppDir "demo\blinky-temperature"
-& $VenvVsd run --app $DemoApp
+$AdsMod = Join-Path $Root "spec-mods\ads1115.json"
+& $VenvVsd run --app $DemoApp --spec-mod $AdsMod
