@@ -10,7 +10,7 @@
 
 ### our pcbs:
 
-![[Screenshot 2026-08-24 122332 1.png]]![[2026-08-22-1.png]]
+![[hmd pcb kicad.png]]![[controller pcb front.png]]
 
 
 
@@ -39,11 +39,11 @@ DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from 
 	
 	- [Cameras](###Cameras)
 		
-	- [Wireless Communication](###Wireless Communication)
+	- [Wireless Communication](###Communication-Wireless)
 	    
-	- [Optical System](###Optical System)
+	- [Optical System](###Optical-System)
 		
-	- [Mechanical Design](###Mechanical Design)
+	- [Mechanical Design](###Mechanical-Design)
 	    
 - [Firmware](##firmware)
     
@@ -98,7 +98,7 @@ DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from 
 
 ---
 
-## Hardware Overview
+## Hardware-Overview
 
 DeltaVR is a custom designed headset with a pair of also custom controllers, its a combination of commercially available components with custom pcbs and mostly 3d printed mechanical parts.
 
@@ -113,8 +113,8 @@ Each of the controllers and the headset pcb have have their own LSM6DSV16X imu a
 
 The mechanical design is mainly 3d printed with the exception of 2 5mm stainless steel linear rods, other than that its all asa or for cushions and some flexible parts tpu-lw.
 
-![[Pasted image 20261023214732.png]]
-![[Pasted image 20261024140133.png]]
+![[hmd front cad.png]]
+![[headset inside cad.png]]
 
 ---
 ### Controllers
@@ -141,7 +141,7 @@ DeltaVR uses a pair of pseudo pancake lenses, while they have issues and aren't 
 
 The main reason above all others we went for pseudo pancakes was to have a cheap and also compact optical system, because making a lighter headset means longer sessions are more comfortable, we cant make a bigscreen beyond but something to be maybe similar to a quest 3 was our goal.
 
-![[Pasted image 20261024140104.png]]
+![[lens detail cad.png]]
 
 ---
 
@@ -162,15 +162,15 @@ For the hmd pcb all the choices were the same as for the controllers, just there
 
 here are the schematics:
 
-![[hmd schem.svg]]
+https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/hmd%20schem.svg
 
-![[controller schem.svg]]
+https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/controller%20schem.svg
 
 
 
 ---
 
-## Design Decisions
+## Design-Decisions
 
 A run down of all the reasons of the things that were picked and why they were, etc.
 
@@ -186,7 +186,7 @@ So what did we do, we found the right lens at a very good price, with one caveat
 
 ---
 
-### Wireless Communication
+### Wireless-Communication
 
 
 So like if you're in the know with slimevr you'll understand all this but basically something like an esp32 works over wifi which is good and it works well don't get me wrong but its first and foremost very draining on battery, or at least it is in comparison to what we are using, that being ESB, so basically for controllers you wouldn't want them to run out of battery fast so like ESB is perfect, ESB stands for Enhanced Shock-Burst it's a *sadly* proprietary protocol developed by Nordic for use with their wireless microcontrollers and devices, a basic explanation of what it does would be is that its a 2.4 GHz communication protocol that differs from things like Bluetooth because it has absolutely NO native security and its interference handling is pretty basic, which those two things are both sum Bluetooth does very well, anyways so now the upsides of ESB for us are massive because the latency is like actually non-existent with ESB and along with that the power consumption is so low that for example my nRF52840 pro micro based smolslime vr trackers still turn on even though i charged them literally like multiple months ago, though tbf i don't use them often, but basically they are very efficient is what I'm trying to say.
@@ -194,7 +194,7 @@ So like if you're in the know with slimevr you'll understand all this but basica
 
 ---
 
-### Optical System
+### Optical-System
 
 
 I will keep this one short because it's rather big as a actual topic, but basically real pancake lenses are INCREDIBLY INCREDIBLY expensive, especially custom made ones, although high quality PMMA fresnel lenses are very cheap and can well just be cut up as long as you do it right, so basically if you have a standard fresnel like in the quest 2 for example, in the quest 2 there is just one thick fresnel and its rather far from the screen due to the nature of fresnels, so the result is a thicker headset because a normal fresnel needs more space to be able to work with the light, now our solution is pancake lenses, a very smart trick with fresnels first seen made by a guy named WalkerDev, check out the article [here](https://hackaday.io/project/187343-the-psuedopancakes), anyways so basically by stacking two fresnels the ability for them to bend light is far far stronger and hence they can be far far closer to the display meaning you get a way smaller headset, although they do have caveats and aren't perfect neither are they as good as actual pancake lenses, the issue with them is they can split light slightly at the edges meaning they can produce chromatic aberration or god rays, and if the alignment isn't done well its quite bad, however in my opinion it works well and is a good tradeoff to make for what you get back.
@@ -202,7 +202,7 @@ I will keep this one short because it's rather big as a actual topic, but basica
 
 ---
 
-### Mechanical Design
+### Mechanical-Design
 
 
 Last up is the mechanical design, mechanically this headset is pretty simple, we have the displays mounted on linear rods with a tiny bit of grease and then the display mounts have a rack and a pinion is between the racks and connects to a lil thing on the outside though u can just adjust them by moving one display thing inward or outward, the other will do the same cuz they are connected with the racks and pinion, then other than that is the head strap and the adjustable part for it, the adjustable part is again just a rack and pinion system with a big thing on the outside to turn easily and then the head strap needs its flexible parts and cushions which are done with the wonderful TPU-LW filament that eSUN makes which is TPU but its got sum stuff inside it that make it like make tiny tiny bubbles under high heat so like by modulating the nozzle temp on my printer i can get softer and more expanded / bigger parts with higher temps and get normal hard TPU with lower temps, great stuff honestly just look out for clogs.
@@ -226,7 +226,7 @@ You'll need some nuts and m3 screws and then, well we don't actually have like t
 
 ---
 
-## Bill of Materials
+## Bill-of-Materials
 
 
 check out the BoM folder in the root of the repo.
@@ -234,7 +234,7 @@ check out the BoM folder in the root of the repo.
 
 ---
 
-## Development Status
+## Development-Status
 
 
 rn we are working on well i was working on this readme, and we just need to buy and build the headset but before that we need our controllers done, rn what we are doing is firmware and the basics for the software tho cuz we wanna leave controller modeling for the end cuz its kinda easy
@@ -242,7 +242,7 @@ rn we are working on well i was working on this readme, and we just need to buy 
 
 ---
 
-## Known Issues
+## Known-Issues
 
 
 uhh not many, we try to fix the issues yk, but uh like we got some issues with vsd and renode rn thats abt it tho
@@ -250,7 +250,7 @@ uhh not many, we try to fix the issues yk, but uh like we got some issues with v
 
 ---
 
-## Project Links
+## Project-Links
 
 
 You can check me, oxy-2 out on my site at [oxygenated.uk]( https://www.oxygenated.uk) and you can check out my friend grand at [nesaule.dev](https://nesaule.dev) and you can see the work i did with stardance [here](https://stardance.hackclub.com/projects/26318) and lastly heres our repo on github, [deltavr](https://github.com/oxy-2/deltavr) 
