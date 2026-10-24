@@ -10,13 +10,14 @@
 
 ### our pcbs:
 
-![[hmd pcb kicad.png]]![[controller pcb front.png]]
+![hmd pcb](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/hmd%20pcb%20kicad.png?raw=true)
+
+![controller pcb](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/controller%20pcb%20front.png?raw=true)
 
 
 
 
-
-DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from the hadesvr headset while being more oriented towards technical users due to the smd components, it uses almost all custom hardware aside from the microcontroller, cameras, lenses, screens and drivers, and like linear rods ig, other than that everything is made by us with customs pcbs, and a almost entirely 3d printable design aside from again the ⌀5mm x 160mm stainless steel linear rods, the overarching goal of deltavr was an advanced opensource VR headset with large ipd accomidation, with inside out SLAM tracking and constellation tracked controllers with actually analog triggers on our custom controllers, all under 500 if you have the tools (we got all the way down to 390 actually!)
+DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from the hadesvr headset while being more oriented towards technical users due to the smd components, it uses almost all custom hardware aside from the microcontroller, cameras, lenses, screens and drivers, and like linear rods ig, other than that everything is made by us with customs pcbs, and a almost entirely 3d printable design aside from again the ⌀5mm x 160mm stainless steel linear rods, the overarching goal of deltavr was an advanced opensource VR headset with large ipd accommodation, with inside out SLAM tracking and constellation tracked controllers with actually analog triggers on our custom controllers, all under 500 if you have the tools (we got all the way down to 390 actually!)
 
 ---
 ## Table of Contents
@@ -113,8 +114,8 @@ Each of the controllers and the headset pcb have have their own LSM6DSV16X imu a
 
 The mechanical design is mainly 3d printed with the exception of 2 5mm stainless steel linear rods, other than that its all asa or for cushions and some flexible parts tpu-lw.
 
-![[hmd front cad.png]]
-![[headset inside cad.png]]
+![hmd front cad](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/hmd%20front%20cad.png?raw=true)
+![headset inside shell cad](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/headset%20inside%20cad.png?raw=true)
 
 ---
 ### Controllers
@@ -141,7 +142,7 @@ DeltaVR uses a pair of pseudo pancake lenses, while they have issues and aren't 
 
 The main reason above all others we went for pseudo pancakes was to have a cheap and also compact optical system, because making a lighter headset means longer sessions are more comfortable, we cant make a bigscreen beyond but something to be maybe similar to a quest 3 was our goal.
 
-![[lens detail cad.png]]
+![hmd detailed lens cad](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/lens%20detail%20cad.png?raw=true)
 
 ---
 
@@ -162,9 +163,9 @@ For the hmd pcb all the choices were the same as for the controllers, just there
 
 here are the schematics:
 
-https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/hmd%20schem.svg
+![hmd pcb schematic](https://raw.githubusercontent.com/oxy-2/deltavr/779e005105eff8844ef0ba302d08cff9e9efcb2a/docs/readme%20images/hmd%20schem.svg)
 
-https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/controller%20schem.svg
+![controller pcb schematic](https://raw.githubusercontent.com/oxy-2/deltavr/779e005105eff8844ef0ba302d08cff9e9efcb2a/docs/readme%20images/controller%20schem.svg)
 
 
 
