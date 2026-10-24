@@ -268,6 +268,8 @@ This project was inspired by the Quest 3 made by Meta, the Bigscreen Beyond and 
 
 Other than that we used tools like renode, blender, onshape and kicad along side very common programming languages like C, C++, Python and C#.
 
+And lastly but certainly not least a MASSIVE thanks to [Hack Club](https://hackclub.com/) they really are what let me make this project, with the rewards for the programs I've worked with motivating me to work on this as my dream project and in general they are a very awesome bunch of people and ill always be thankful to have had worked with them <3
+
 
 ---
 
