@@ -3,8 +3,7 @@
 
 ### our headset:
 
-![hmd back render](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/%20hmd%20back%20render.png?raw=true)
-
+![hmd back render](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/headset_back.png?raw=true)
 
 ### our pcbs:
 
