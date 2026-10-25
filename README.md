@@ -3,9 +3,7 @@
 
 ### our headset:
 
-
-
-
+![hmd back render](https://github.com/oxy-2/deltavr/blob/main/docs/readme%20images/%20hmd%20back%20render.png?raw=true)
 
 
 ### our pcbs:
@@ -19,7 +17,11 @@
 
 DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from the hadesvr headset while being more oriented towards technical users due to the smd components, it uses almost all custom hardware aside from the microcontroller, cameras, lenses, screens and drivers, and like linear rods ig, other than that everything is made by us with customs pcbs, and a almost entirely 3d printable design aside from again the ⌀5mm x 160mm stainless steel linear rods, the overarching goal of deltavr was an advanced opensource VR headset with large ipd accommodation, with inside out SLAM tracking and constellation tracked controllers with actually analog triggers on our custom controllers, all under 500 if you have the tools (we got all the way down to 390 actually!)
 
+
+
 ---
+
+
 ## Table of Contents
 
 - [Features](##features)
@@ -61,6 +63,8 @@ DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from 
 - [Credits](##credits)
     
 - [License](##license)
+
+
 
 ---
 
