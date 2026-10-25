@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a92942480164fd70",
+        "id": "94ff50eac51824c2",
         "type": "tabs",
         "children": [
           {
-            "id": "159d9e892ec82f4b",
+            "id": "89437ee60a052202",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "week6 thirdspace/monizjoao/-Sixth week work.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "-Sixth week work"
             }
           }
         ]
@@ -184,18 +188,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "159d9e892ec82f4b",
+  "active": "89437ee60a052202",
   "lastOpenFiles": [
     "week5 thirdspace/monizjoao/-Fifth week work.md",
+    "week6 thirdspace/monizjoao/-Sixth week work.md",
+    "week6 thirdspace/rhime7274/Untitled.md",
+    "week6 thirdspace/merekelene/renode vsd.png",
+    "week6 thirdspace/merekelene/reference 2.png",
+    "week6 thirdspace/merekelene/reference 1.png",
+    "week6 thirdspace/merekelene/pcb traces.png",
+    "week6 thirdspace/merekelene/pcb odel bottom.png",
+    "week6 thirdspace/merekelene/pcb model top.png",
+    "week6 thirdspace/merekelene/- week 6 review.md",
+    "week6 thirdspace/merekelene/pcb 3d model.png",
+    "week6 thirdspace/rhime7274",
+    "week6 thirdspace/monizjoao",
+    "week6 thirdspace/merekelene",
+    "week6 thirdspace",
     "week5 thirdspace/monizjoao/Documentation on the design choices.png",
     "week5 thirdspace/monizjoao/Article about ORB-SLAM3 primarily used for research.png",
     "week5 thirdspace/monizjoao/Face gasket on the face.png",
-    "week5 thirdspace/monizjoao/Face gasket.png",
-    "week5 thirdspace/monizjoao/Strap final model.png",
-    "week5 thirdspace/monizjoao/RaspOS Imager verifying the installed files.png",
-    "week5 thirdspace/monizjoao/Strap being built.png",
-    "week5 thirdspace/monizjoao/Wiki page for SLAM (2).png",
-    "week5 thirdspace/monizjoao/Wiki page for SLAM (1).png",
     "week3 thirdspace/monizjoao/-Third Week Work.md",
     "week5 thirdspace/rhime7274/-Fifth week work.md",
     "week5 thirdspace/merekelene/-Fifth week work.md",
@@ -205,13 +217,8 @@
     "week5 thirdspace/merekelene/journal but latvian.txt",
     "week5 thirdspace/merekelene/New Text Document.txt",
     "week5 thirdspace/monizjoao/journal.txt",
-    "week5 thirdspace/monizjoao/New Text Document.txt",
-    "week5 thirdspace/rhime7274",
-    "week5 thirdspace/New folder",
-    "week5 thirdspace/merekelene",
     "week4 thirdspace/monizjoao/-Fourth Week Work.md",
     "week4 thirdspace/merekelene/Week 4 review.md",
-    "week4 thirdspace/monizjoao/My scrapped camera holder design.png",
     "week4 thirdspace/rhime7274/Untitled.md",
     "week4 thirdspace/merekelene/Untitled.md",
     "week4 thirdspace/Untitled.md",
