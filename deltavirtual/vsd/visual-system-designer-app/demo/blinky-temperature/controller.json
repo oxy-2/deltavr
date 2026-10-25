@@ -1,0 +1,451 @@
+{
+    "graph": {
+        "id": "fa8ebc36-6640-4600-9ce6-df2b0d4276e2",
+        "nodes": [
+            {
+                "id": "4d6a58b0-34f4-4d20-995f-34aa2cd00e90",
+                "position": {
+                    "x": 890,
+                    "y": -47
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio0",
+                        "id": "725d3dd2-8d73-40aa-aac8-6d6768b36137",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "pdm0",
+                        "id": "5518fda8-c8e4-4ecf-ac81-c8a9f63b10fe",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "pwm1",
+                        "id": "17df40bf-aa73-4656-b32f-612303e5cebb",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "pwm3",
+                        "id": "dee75052-7ea1-44bb-8caf-3e03f73fcac9",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 3
+                    },
+                    {
+                        "name": "qdec",
+                        "id": "06697ca2-6efa-4f39-9f81-0ba1b6071f93",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 4
+                    },
+                    {
+                        "name": "spi0",
+                        "id": "2d78a977-cd30-4e11-a49c-d2ebdfdd89c0",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 5
+                    },
+                    {
+                        "name": "spi1",
+                        "id": "cc8e0026-1417-4efb-819e-a7aeeae7cbaf",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 6
+                    },
+                    {
+                        "name": "spi2",
+                        "id": "adc7d7c3-29cf-4616-bf5b-4f2a2d6b1609",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 7
+                    },
+                    {
+                        "name": "uart0",
+                        "id": "5e5a60ce-5680-430d-bce2-ca9103ee512b",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 8
+                    },
+                    {
+                        "name": "uart1",
+                        "id": "d3b0c9c2-640d-480a-8218-b309fff09aef",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 9
+                    },
+                    {
+                        "name": "adc",
+                        "id": "85c94fe4-1b06-471d-98da-a1a0955b54e6",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "flash_controller",
+                        "id": "53fa5a2e-9f10-48a8-abfd-e6b668889762",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "gpio1",
+                        "id": "ae34c8cc-fdb8-4bd7-adb0-becc8a626fe4",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "i2c0",
+                        "id": "c38f2cc4-9a9c-4073-85b3-251f807416b2",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 3
+                    },
+                    {
+                        "name": "i2c1",
+                        "id": "86c719f1-c55a-4c8a-8ab0-8c15b84c6936",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 4
+                    },
+                    {
+                        "name": "i2s0",
+                        "id": "d0657853-719d-455f-b598-455693984297",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 5
+                    },
+                    {
+                        "name": "pwm0",
+                        "id": "8d7d7f7b-67fd-409e-a732-1ae0086f50e1",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 6
+                    },
+                    {
+                        "name": "pwm2",
+                        "id": "09c32197-c71e-4b88-b98f-44c2b2e21940",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 7
+                    },
+                    {
+                        "name": "qspi",
+                        "id": "807a3f8e-5db9-487d-be0d-5df4552d4ade",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 8
+                    },
+                    {
+                        "name": "spi3",
+                        "id": "1114ae9f-42cd-4402-b449-42a59018b17a",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 9
+                    }
+                ],
+                "properties": [],
+                "enabledInterfaceGroups": [],
+                "name": "nrf52840",
+                "instanceName": "nrf52840 mcu"
+            },
+            {
+                "id": "915e5f2e-80ef-49ad-a61a-e240656e9252",
+                "position": {
+                    "x": 1427,
+                    "y": -126
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "c4a10fa6-e1e3-41af-be1f-fe314372660a",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "553c7c26-3c8e-4e4d-ba6c-570312dea3a9",
+                        "value": "0x50000760"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Button",
+                "instanceName": "Button f1"
+            },
+            {
+                "id": "bb5063d5-3fe8-428f-bf59-e078a721dc4b",
+                "position": {
+                    "x": 1428,
+                    "y": 69
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "04dd18f5-86fe-4178-bf59-ca04bd34a5d2",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "1ec0f2c8-813a-4066-9b62-f323d117268d",
+                        "value": "0x50000A00"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Button",
+                "instanceName": "Button f2"
+            },
+            {
+                "id": "0c982592-5129-4d09-ae3e-03b15cdde0c4",
+                "position": {
+                    "x": 1431,
+                    "y": 267
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "a2d4572e-2561-4c4b-bc6d-22ce64f31f72",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "dbfe7524-cab4-459e-baf1-9eb326662722",
+                        "value": "0x5000072C"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Button",
+                "instanceName": "Button s1"
+            },
+            {
+                "id": "2d981fda-df0e-4f3c-8d3c-a9e7dfa0111a",
+                "position": {
+                    "x": 336,
+                    "y": -149
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "c34d04a9-1877-4476-bd1f-880ee54361ef",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "fad69866-72bd-4b89-9793-41584575488d",
+                        "value": "0x5000077C"
+                    },
+                    {
+                        "name": "active",
+                        "id": "f264f76a-448d-4060-8065-9d983a0d2917",
+                        "value": false
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "LED",
+                "instanceName": "LED (we all outa irlz44n mosfets)"
+            },
+            {
+                "id": "9fbb41b8-4da4-4772-a4b1-543079297224",
+                "position": {
+                    "x": 334,
+                    "y": 98
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "6a76e08a-d28f-4293-a3ee-021ba1fd82e9",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "adc",
+                        "id": "d3707a93-d029-406b-8401-ff5ff48caac7",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "ef1380bc-3c8f-4c82-8a32-3a8e65277bb6",
+                        "value": "0x48"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "ADS1115",
+                "instanceName": "ADS1115 adc for triggers and joystick"
+            },
+            {
+                "id": "00e7f311-bbfa-4be5-bd76-fe659c1de79a",
+                "position": {
+                    "x": 330,
+                    "y": 303
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "i2c",
+                        "id": "2f9330ee-6ff4-43f3-a3d6-e6bc58d48286",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "i3c",
+                        "id": "d74a7722-9d67-42aa-9b4d-94860a0a4d2a",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 1
+                    },
+                    {
+                        "name": "int2",
+                        "id": "b96ec093-7e93-4a4b-b702-6db105ae981a",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 2
+                    },
+                    {
+                        "name": "int1",
+                        "id": "0b399664-1200-41b8-a3b6-1cdbc2eb61db",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 0
+                    },
+                    {
+                        "name": "spi",
+                        "id": "87554bd8-eee5-4afa-8914-c3aa77ff9022",
+                        "direction": "inout",
+                        "side": "right",
+                        "sidePosition": 1
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (i2c)",
+                        "id": "6071eb32-e967-4b81-8c1b-1eb28bfc2753",
+                        "value": "0x6B"
+                    },
+                    {
+                        "name": "address (spi)",
+                        "id": "7f9dd328-7d61-47db-9496-f8c002af3739",
+                        "value": "0x0"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "lsm6dsv16x",
+                "instanceName": "lsm6dsv16x"
+            },
+            {
+                "id": "5c31cd64-fe90-4b75-9164-dd6ee4d2fc9c",
+                "position": {
+                    "x": 1431,
+                    "y": 466
+                },
+                "width": 200,
+                "twoColumn": true,
+                "interfaces": [
+                    {
+                        "name": "gpio",
+                        "id": "056b00fa-dbeb-469d-9f0b-6a594e53917a",
+                        "direction": "inout",
+                        "side": "left",
+                        "sidePosition": 0
+                    }
+                ],
+                "properties": [
+                    {
+                        "name": "address (gpio)",
+                        "id": "668deeca-b425-4e1d-8d51-9f31b86f7520",
+                        "value": "0x50000758"
+                    }
+                ],
+                "enabledInterfaceGroups": [],
+                "name": "Button",
+                "instanceName": "Button joy-btn-gpio"
+            }
+        ],
+        "connections": [
+            {
+                "id": "57185b9c-ca9e-4749-9ba1-14802fd39c15",
+                "from": "04dd18f5-86fe-4178-bf59-ca04bd34a5d2",
+                "to": "ae34c8cc-fdb8-4bd7-adb0-becc8a626fe4"
+            },
+            {
+                "id": "a494f167-d85c-4230-9da9-ec6e8339c929",
+                "from": "c4a10fa6-e1e3-41af-be1f-fe314372660a",
+                "to": "725d3dd2-8d73-40aa-aac8-6d6768b36137"
+            },
+            {
+                "id": "fbe801a0-d610-49e7-a51a-9733bd6b8c50",
+                "from": "a2d4572e-2561-4c4b-bc6d-22ce64f31f72",
+                "to": "725d3dd2-8d73-40aa-aac8-6d6768b36137"
+            },
+            {
+                "id": "5d80b185-2aea-4472-b4b1-b200d8bb0431",
+                "from": "056b00fa-dbeb-469d-9f0b-6a594e53917a",
+                "to": "725d3dd2-8d73-40aa-aac8-6d6768b36137"
+            },
+            {
+                "id": "e3d5f14c-1f73-4bc4-94a9-26d40fe36bfd",
+                "from": "6a76e08a-d28f-4293-a3ee-021ba1fd82e9",
+                "to": "c38f2cc4-9a9c-4073-85b3-251f807416b2"
+            },
+            {
+                "id": "7b546d6e-5ed4-4cca-bd76-31301a8de465",
+                "from": "0b399664-1200-41b8-a3b6-1cdbc2eb61db",
+                "to": "ae34c8cc-fdb8-4bd7-adb0-becc8a626fe4"
+            },
+            {
+                "id": "58cd45fa-bc72-4ef3-9dc1-796eef29323d",
+                "from": "b96ec093-7e93-4a4b-b702-6db105ae981a",
+                "to": "ae34c8cc-fdb8-4bd7-adb0-becc8a626fe4"
+            },
+            {
+                "id": "30a89134-12fc-4d94-a007-adb3c65a3817",
+                "from": "2f9330ee-6ff4-43f3-a3d6-e6bc58d48286",
+                "to": "86c719f1-c55a-4c8a-8ab0-8c15b84c6936"
+            },
+            {
+                "id": "e9fb6d1c-a57c-41e3-861f-6c1c4a7cc800",
+                "from": "c34d04a9-1877-4476-bd1f-880ee54361ef",
+                "to": "725d3dd2-8d73-40aa-aac8-6d6768b36137"
+            }
+        ]
+    },
+    "version": "20230830.11"
+}
