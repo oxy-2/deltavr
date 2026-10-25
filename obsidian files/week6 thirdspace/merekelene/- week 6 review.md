@@ -5,7 +5,7 @@ Rhime had made a startup script that hosts a visual software development platfor
 
 we also ran into a prblem where we were not able to build and or run the simulation because of many different errrors, some we were able to fix but some we were not, so this shall be continued at a later time.
 
-![[renode vsd.png]]
+![[deltavr/obsidian files/week6 thirdspace/merekelene/renode vsd.png]]
 
 https://lapse.hackclub.com/timelapse/47vrxK5W7rEh
 https://lapse.hackclub.com/timelapse/QvftXa7K-aHX
