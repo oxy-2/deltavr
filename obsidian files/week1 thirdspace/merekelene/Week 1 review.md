@@ -36,7 +36,7 @@ Rhime7274 who invited me to join him in this event had already been doing a lot 
 The main problem I ran into was that the only schematic showing all the gpio port connections to peripherals was very messy and hard to read so I spent two lapses working on putting them in a more readable format.
 
 From this :
-![[pcb.png]]
+![[deltavr/obsidian files/week1 thirdspace/merekelene/pcb.png]]
 
 To this :
 ![[readable gpio pin conections.png]]
