@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 375 375" version="1.1">
+  <!-- Rainbow Stripes Left Section -->
+  <g transform="translate(42, 130)">
+    <rect x="0" y="0" width="69" height="11" fill="#ff0000" />
+    <rect x="0" y="11" width="65" height="11" fill="#ff7f00" />
+    <rect x="0" y="22" width="59" height="11" fill="#ffff00" />
+    <rect x="0" y="33" width="52" height="11" fill="#008000" />
+    <rect x="0" y="44" width="45" height="11" fill="#0000ff" />
+    <rect x="0" y="55" width="37" height="11" fill="#8b00ff" />
+  </g>
+
+  <!-- Triangle (Replaced Black with White) -->
+  <polygon points="111,130 151,197 71,197" fill="#ffffff" />
+
+  <!-- Outer Rectangular Frame Container (Replaced Black with White) -->
+  <rect x="42" y="130" width="290" height="67" fill="none" stroke="#ffffff" stroke-width="2" />
+  <line x1="111" y1="130" x2="151" y2="197" stroke="#ffffff" stroke-width="2" />
+
+  <!-- Outer border layout connection line -->
+  <path d="M 139,141 L 329,141" stroke="#ffffff" stroke-width="2" fill="none" />
+
+  <!-- Text styling (Replaced Black with White) -->
+  <text x="328" y="138" font-family="sans-serif" font-size="5" fill="#ffffff" text-anchor="end">by oxy, with love &lt;3</text>
+  <text x="150" y="185" font-family="sans-serif" font-weight="bold" font-size="44" fill="#ffffff">deltavr.</text>
+</svg>
