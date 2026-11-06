@@ -5,7 +5,6 @@ so basically this week is the final week (02/11/2026) for our work on deltavr wi
 3. full art + components for pcbs for renders
 4. renders, we need good renders (controllers and headset with their pcbs)
 5. tutorial video's on building and how to construct irl the things we made 
-6. full deltavr video script
 7. full deltavr video recording
 8. full deltavr video editing
 
@@ -79,15 +78,5 @@ following a similar style to the following youtube channels:
 - i did a thing
 
 we are gonna film throughout many of the different selected areas doing from the library isolated section where we will sue as a main spot to actually talk and explain stuff, we have abt 45mins of time there to film so we need to make good use of it and its gonna be 30 to 15 mins of usable footage sadly cuz 45 is short but we have the classroom too and good areas generally
-
-
-### script (oxy, joao)
-yeah idk this is for fucking Tuesday man 
-
-
-### filming areas (oxy, joao, grand)
-
-
-### editing (oxy, joao, grand)
 
 
