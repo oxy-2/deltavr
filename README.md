@@ -1,5 +1,4 @@
-<h1> deltavr <img src="https://raw.githubusercontent.com/oxy-2/deltavr/2b1181ff58bc2393b99f029151fed14c2eeebea5/logos/fullcol%20deltavr.svg" alt="deltavr Logo" style="float: right;" width="150" height="auto" /> </h1>
-
+# DeltaVR
 
 DeltaVR is an open-source, lightweight PCVR headset built  to be a step up from the hadesvr headset while being more oriented towards technical users due to the smd components, it uses almost all custom hardware aside from the microcontroller, cameras, lenses, screens and drivers, and like linear rods ig, other than that everything is made by us with customs pcbs, and a almost entirely 3d printable design aside from again the ⌀5mm x 160mm stainless steel linear rods, the overarching goal of deltavr was an advanced opensource VR headset with large ipd accommodation, with inside out SLAM tracking and constellation tracked controllers with actually analog triggers on our custom controllers, all under 500 if you have the tools (we got all the way down to 390 actually!)
 
