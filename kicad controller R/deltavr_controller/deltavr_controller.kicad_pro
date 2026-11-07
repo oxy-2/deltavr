@@ -558,7 +558,7 @@
       "plot": "../gerbers_controllerR/",
       "specctra_dsn": "",
       "step": "",
-      "vrml": ""
+      "vrml": "../../kicad pcb models/deltavr_controller.wrl"
     },
     "page_layout_descr_file": ""
   },
