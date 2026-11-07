@@ -555,10 +555,10 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../gerbers_controllerL/",
       "specctra_dsn": "",
       "step": "",
-      "vrml": ""
+      "vrml": "deltavr_controller.wrl"
     },
     "page_layout_descr_file": ""
   },
