@@ -95,7 +95,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
@@ -10791,18 +10790,6 @@
 			)
 			(rotate
 				(xyz -0 -0 90)
-			)
-		)
-		(model "C:/Users/rhime/Documents/GitHub/deltavr/kicad libaries/nicenano actually working/nrf52840-painted.3mf"
-			(hide yes)
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -0 -0 -0)
 			)
 		)
 	)

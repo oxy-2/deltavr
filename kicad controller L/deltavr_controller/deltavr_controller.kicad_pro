@@ -557,7 +557,7 @@
       "netlist": "",
       "plot": "../gerbers_controllerL/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../kicad pcb models/step models if the wrl ones are buns/controller_L/deltavr_controller.step",
       "vrml": "deltavr_controller.wrl"
     },
     "page_layout_descr_file": ""

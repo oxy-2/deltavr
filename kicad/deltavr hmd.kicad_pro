@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "deltavr hmd.stl",
+      "step": "../kicad pcb models/step models if the wrl ones are buns/hmd/deltavr hmd.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
