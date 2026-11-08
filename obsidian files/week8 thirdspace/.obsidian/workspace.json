@@ -11,12 +11,14 @@
             "id": "a5e679831d058e38",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "merekelene/primary trigger in place.png"
+                "file": "merekelene/- Week 8 review.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "primary trigger in place"
+              "icon": "lucide-file",
+              "title": "- Week 8 review"
             }
           }
         ]
@@ -97,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "merekelene/primary trigger in place.png",
+                "file": "merekelene/- Week 8 review.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "merekelene/primary trigger in place.png",
+                "file": "merekelene/- Week 8 review.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -159,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "merekelene/primary trigger in place.png",
+                "file": "merekelene/- Week 8 review.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -186,12 +188,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "0beed86da963e57f",
+  "active": "a5e679831d058e38",
   "lastOpenFiles": [
-    "merekelene/- Week 8 review.md",
-    "merekelene/primary trigger hidden stuff.png",
-    "merekelene/primary trigger in place.png",
-    "merekelene/primary trigger back.png",
-    "merekelene/primary trigger front.png"
+    "merekelene/skill.png",
+    "merekelene/both controllers.png",
+    "merekelene/grooves top.png",
+    "merekelene/notches top.png",
+    "merekelene/grooves bottom.png",
+    "merekelene/notches bottom.png",
+    "merekelene/new antenna placement.png",
+    "merekelene/old antenna placement.png",
+    "merekelene/both triggers.png",
+    "merekelene/secondary trigger hidden stuf.png",
+    "merekelene/secondary trigger hidden stuff.png",
+    "merekelene/- Week 8 review.md"
   ]
 }
