@@ -95,4 +95,10 @@ https://www.youtube.com/watch?v=DRMIoG74i-c (hmd)
 and thats about it, thanks so much for taking time out of your day to read this and i hope you have a splendid rest of your day and or night, heres the lapse links :)
 
 
+https://lapse.hackclub.com/timelapse/JwWUnnIHmbbS
+https://lapse.hackclub.com/timelapse/8n8SOZHCLgMM
+https://lapse.hackclub.com/timelapse/CTgON5fJUsGl
+https://lapse.hackclub.com/timelapse/E3mM8jmhMHCq
+https://lapse.hackclub.com/timelapse/gFxwUaK1byHb
 
+(yea just 5 this week but they are loooong lol)
