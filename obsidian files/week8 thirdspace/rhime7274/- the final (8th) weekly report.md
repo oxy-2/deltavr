@@ -38,9 +38,9 @@ and i think thats all but i coulda missed some things, we did a lot a lot lol an
 in short i just had to change a couple things, finalize sourcing for the bom and such and then the bill of tools was from scratch and is basically just, a good iron, hot air soldering machine (or well and 858d is entry level but it dont matter), a hotplate and like some solder wire, some good flux, some solder paste, and all the solder is leaded ofc cuz i luv lead  :drooling emohi:  anyways so like heres a pic of both:
 
 the bom:
-![[Pasted image 20261108221402.png]]
+![[bom.png]]
 
-the bot:![[Pasted image 20261108221559.png]]
+the bot:![[bot.png]]
 
 anyways thats abt it the bot is just like aliexpress and the bom is split up over amazon, aliexpress and alibaba lol.
 
@@ -50,7 +50,7 @@ anyways thats abt it the bot is just like aliexpress and the bom is split up ove
 so joao and me went on like tuesday and we reserved a room in the school to record in and we got like 30 or 35 mins of 4k 60fps footage on my phone and the full audio track on his as we used it like a mic, you can go and check out all the vids including this one when it comes out on my yt channel lol https://www.youtube.com/@oxy2sin any ways so like i went over all the design aspects and like what the headset is, whos it for, what are the pros and cons and how we made it ig, its been a lot of editing work for joao so i hope you all like it, speakign of joao edited it in davinci resolve and we used Lud and Schlatts Musical Emporium for the soundtrack check it all out here https://www.youtube.com/@ludandschlattsmusicalempor6746, anyways so theres not much more i can say on it but here is a screenshot
 
 joao just took this one for me in davinci:
-![[Pasted image 20261108224756.png]]
+![[davinci.png]]
 
 
 
@@ -59,12 +59,12 @@ joao just took this one for me in davinci:
 so the models for phase 2 are done, defo subject to change but as of now they are great, also goodness gracious the controllers were a fucking pain, the headset has been done since last week at least but the controllers had to be like redone a couple times, it was lowk a shit show lmao but me and grand absolutely clutched that shit, and yes both of us werent pregnant but we still delivered :whitecheckmarkemoji: x 3, anyways so heres a pic or two lol of the two finished models for you :)
 
 the headset ofc:
-![[Screenshot 2026-11-08 210346.png]]
+![[headsetend.png]]
 
 and are the beautiful finished controllers:
-![[Screenshot 2026-11-08 203813.png]]
+![[controllersend.png]]
 
-this what the bomboclat controllers used to be like btw:![[Screenshot 2026-11-08 143228.png]]
+this what the bomboclat controllers used to be like btw:![[controllerstart.png]]
 
 its similar but like more choppedered, yeah.
 
@@ -78,14 +78,14 @@ with the bom done, the bot done, the final controller parts and files done and t
 ## The final pcbs for phase 2
 
 so i finished the pcbs and yes that means i finally did a left controller lmao it was actually nice, i find kicad and wire routing very relaxing, anyways so i made a left controller and got rid of the shit nrf52840 promicro like nicenano footprint thing i was using and replaced it with a far better one on all boards, here's a beautiful screenshot of the assembled controller pcb:
-![[Screenshot 2026-11-07 202903.png]]
+![[deltavr/obsidian files/week8 thirdspace/rhime7274/controller pcb.png]]
 
 please ignore the uncoloredness of the mcu i painted it in a painter app and exported it and tried it for a 3d model, it didnt work for some reason :sobbing emohi: i gotta stop with the emohis anyways so like last up
 
 ## the physical build guides!
 
 so i legit just did no edits and just screen recorded an explanation and yuh its done :)
-here's a screenshot from my channel![[Pasted image 20261108224537.png]]
+here's a screenshot from my channel![[ytchannel.png]]
 
 and heres the links to the videos:
 https://www.youtube.com/watch?v=Ryy1qyBSe_g&t=15s (controller)

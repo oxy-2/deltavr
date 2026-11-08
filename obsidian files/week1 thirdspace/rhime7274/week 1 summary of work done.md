@@ -29,7 +29,7 @@ next is this which details how things would be wired and is at least mostly accu
 
 so next would be the pcb and its final state as of this week, so i moved arround some stuff on the hmd and controller pcb i belive, here are pictures of both as of now:
 
-![[controller pcb.png]]
+![[deltavr/obsidian files/week1 thirdspace/rhime7274/controller pcb.png]]
 this is the controller pcb, the screw mounting locations changed along with better led placement.
 
 
