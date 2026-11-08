@@ -237,7 +237,7 @@ check out the BoM folder in the root of the repo.
 ## Development-Status
 
 
-rn we are working on well i was working on this readme, and we just need to buy and build the headset but before that we need our controllers done, rn what we are doing is firmware and the basics for the software tho cuz we wanna leave controller modeling for the end cuz its kinda easy
+rn we are working on well i was working on this readme, and we just need to buy and build the headset but before that we are done our controllers, so with v2.0.0 released all we need done is the phyiscal build and like the software and firmware once we have the prototype 
 
 
 ---
