@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "94ff50eac51824c2",
+        "id": "7c80b978c51d3cd8",
         "type": "tabs",
         "children": [
           {
-            "id": "89437ee60a052202",
+            "id": "f810f3a4a624dcf7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "week6 thirdspace/monizjoao/-Sixth week work.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "-Sixth week work"
+              "title": "New tab"
             }
           }
         ]
@@ -188,20 +184,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "89437ee60a052202",
+  "active": "f810f3a4a624dcf7",
   "lastOpenFiles": [
-    "week6 thirdspace/rhime7274/- week 6 report.md",
-    "week6 thirdspace/rhime7274/tos2.jpg",
-    "week6 thirdspace/rhime7274/tos1.jpg",
-    "week6 thirdspace/rhime7274/side pcb controllers.png",
-    "week6 thirdspace/rhime7274/renode vsd.png",
-    "week6 thirdspace/rhime7274/reference 1.png",
-    "week6 thirdspace/rhime7274/readme screenshot.png",
-    "week6 thirdspace/rhime7274/pcb model top.png",
-    "week6 thirdspace/rhime7274/pcb 3d model.png",
-    "week6 thirdspace/rhime7274/lens detailed view.png",
-    "week6 thirdspace/rhime7274/hmd front.png",
+    "week8 thirdspace/rhime7274/ytchannel.png",
+    "week8 thirdspace/rhime7274/headsetend.png",
+    "week8 thirdspace/rhime7274/davinci.png",
+    "week8 thirdspace/rhime7274/controllerstart.png",
+    "week8 thirdspace/rhime7274/controllersend.png",
+    "week8 thirdspace/rhime7274/controller pcb.png",
+    "week8 thirdspace/rhime7274/bot.png",
+    "week8 thirdspace/rhime7274/bom.png",
+    "week8 thirdspace/monizjoao982/- Final report.md",
     "week6 thirdspace/monizjoao/-Sixth week work.md",
+    "week8 thirdspace/monizjoao982/Front Render.png",
+    "week8 thirdspace/monizjoao982/Back Render.png",
+    "week8 thirdspace/monizjoao982/editing.png",
+    "week8 thirdspace/rhime7274/- the final (8th) weekly report.md",
+    "week8 thirdspace/monizjoao982",
+    "week8 thirdspace/merekelene/- Week 8 review.md",
+    "week8 thirdspace/rhime7274",
+    "week8 thirdspace/merekelene",
+    "week8 thirdspace",
+    "file:C:/Users/moniz/OneDrive/Documentos/GitHub/minstalk/docs/- weekly reports/monizjoao/report - MiniStalk.md",
+    "week6 thirdspace/rhime7274/- week 6 report.md",
     "week5 thirdspace/monizjoao/-Fifth week work.md",
     "week5 thirdspace/rhime7274/- week 5 report.md",
     "week6 thirdspace/rhime7274/Untitled.md",
@@ -215,10 +220,6 @@
     "week5 thirdspace/merekelene/-Fifth week work.md",
     "week5 thirdspace/monizjoao/journal but fat.txt",
     "week5 thirdspace/rhime7274/journal but tall.txt",
-    "week5 thirdspace/rhime7274/New Text Document.txt",
-    "week5 thirdspace/merekelene/journal but latvian.txt",
-    "week5 thirdspace/merekelene/New Text Document.txt",
-    "week5 thirdspace/monizjoao/journal.txt",
     "week4 thirdspace/monizjoao/-Fourth Week Work.md",
     "week4 thirdspace/merekelene/Week 4 review.md",
     "week4 thirdspace/rhime7274/Untitled.md",
@@ -230,8 +231,6 @@
     "week2 thirdspace/rhime7274/week 2 summary of work.md",
     "week1 thirdspace/rhime7274/week 1 summary of work done.md",
     "week2 thirdspace/merekelene/Untitled.md",
-    "Untitled.md",
-    "week1 thirdspace/monizjoao/work i did for the first week 1.md",
-    "week1 thirdspace/merekelene/Week 1 review.md"
+    "Untitled.md"
   ]
 }
