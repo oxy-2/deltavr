@@ -16,6 +16,10 @@ Being a tiny bit more technical I and after the first hundred hours i did alone 
 
 Oh also in the repo if you wanna see like logs we wrote for every week of the project while in thirdspace then check the /obsidianfiles/ directory, it has all the week folders and hopefully lol well written logs made by all of us with no AI for writing cuz its a tool and that would be stinky.
 
+Also heres the Youtube video we made abt the project <3
+https://youtu.be/ISufVPaX-EE
+
+
 ---
 
 
